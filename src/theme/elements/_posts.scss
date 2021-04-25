@@ -1,0 +1,61 @@
+.post-grid {
+  padding: 30px 0px 50px;
+  display: grid;
+  grid-gap: 60px 20px;
+  grid-template-columns: repeat(4, [col] 1fr);
+  grid-template-rows: repeat(auto-fill, [row] 1fr );
+  justify-items: center;
+  position: relative;
+
+  .post-item{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 180px;
+
+
+    .post-title{
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+
+      background: white;
+      border-bottom: 5px solid map-get($colors, 'primary' );
+      padding: 20px 15px;
+      @include with-prefix('border-radius', $border-radius);
+
+      height: 100%;
+      width: 95%;
+      display: flex;
+      align-items: center;
+    }
+
+    .post-image{
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      bottom: 40px;
+      @include with-prefix('border-radius', $border-radius);
+      @include with-prefix('filter', grayscale(65%) blur(0px));
+    }
+  }
+
+  a{
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+
+@include breakpoint('max', $show-menu-mobile) {
+  .post-grid {
+    padding: 30px 0px;
+    grid-gap: 100px 20px;
+    grid-template-columns: repeat(2, [col] 1fr);
+  }
+}

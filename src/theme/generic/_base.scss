@@ -1,0 +1,147 @@
+/* # HTML AND BODY
+================================================== */
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: map_get($colors, 'primary-v2');
+    background-color: #F5F5F5;
+    overflow-y: scroll;
+}
+
+/* .container{
+  @include container();
+} */
+
+/* # COMPONENTS DEFAULT
+================================================== */
+a {
+    color: map-get($colors, "primary");
+    text-decoration: none;
+    outline: none;
+    //display: contents;
+    display: inline-block;
+
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active,
+    &.active {
+        text-decoration: underline;
+    }
+}
+
+p{
+  @include text-weight('semibold');
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: 10px 0px;
+
+  &.expanded{ line-height: 26px; }
+
+  &.condensed{ line-height: 18px; }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+hr{
+  display: block;
+  border: 0;
+  border-top: 2px solid map_get($colors, 'primary');
+}
+
+/* # TEXT HELPERS
+================================================== */
+.text-small {
+    @include text-small();
+}
+
+.text-normal {
+    @include text-weight("normal");
+}
+.text-semibold {
+    @include text-weight("semibold");
+}
+.text-bold {
+    @include text-weight("bold");
+}
+
+@each $color in $colors {
+    .text-color-#{nth($color,1)} {
+        color: nth($color, 2);
+    }
+}
+
+/* # TEXT HEADINGS
+================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: map-get($colors, "primary-v2");
+    margin: 0px;
+    padding: 0px;
+    font-weight: 500;
+}
+
+h1, .h1 {
+    font-size: 42px;
+    line-height: 38px;
+}
+h2, .h2 {
+    font-size: 32px;
+    line-height: 24px;
+}
+h3, .h3 {
+    font-size: 28px;
+    line-height: 22px;
+}
+h4, .h4 {
+    font-size: 24px;
+    line-height: 19px;
+}
+h5, .h5 {
+    font-size: 18px;
+    line-height: 17px;
+}
+h6, .h6 {
+    font-size: 14px;
+    line-height: 15px;
+}
+
+.section-heading{
+  text-align: center;
+
+  &>span{
+    font-size: 28px;
+    display: block;
+    font-weight: 300;
+    line-height: 52px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+
+.grecaptcha-badge {
+  opacity: 0;
+}

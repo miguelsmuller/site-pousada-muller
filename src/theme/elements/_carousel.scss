@@ -1,0 +1,28 @@
+.owl-carousel{
+  position: relative;
+}
+
+.owl-stage{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.owl-nav{
+  font-size: 72px;
+}
+
+.owl-prev, .owl-next{
+  position: absolute;
+  top: 50%;
+  transform: translate(50%,-50%);
+}
+
+.owl-prev{
+  left: 0px;
+}
+
+.owl-next{
+  right: 0px;
+}

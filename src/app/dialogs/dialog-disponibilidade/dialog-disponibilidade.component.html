@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Verificar Disponibilidade</h2>
+<mat-dialog-content>
+  <div class="grid grid-cols-5 gap-4">
+    <div class="col-span-5">
+      <label for="input_reservation_name">Nome Completo:</label>
+      <input
+        name="input_reservation_name"
+        id="input_reservation_name"
+        type="text"
+        value=""
+        size="40"
+        class="default-input"
+        placeholder="Nome Completo"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-2">
+      <label for="input_reservation_phone">Telefone:</label>
+      <input
+        name="input_reservation_phone"
+        id="input_reservation_phone"
+        type="text"
+        value=""
+        size="40"
+        class="default-input"
+        placeholder="Telefone"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-3">
+      <label for="input_reservation_mail">E-Mail:</label>
+      <input
+        name="input_reservation_mail"
+        id="input_reservation_mail"
+        type="email"
+        value=""
+        size="40"
+        class="default-input"
+        placeholder="E-Mail"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-2">
+      <label for="input_reservation_period">Período da reserva:</label>
+      <input
+        name="input_reservation_period"
+        id="input_reservation_period"
+        type="text"
+        value=""
+        size="40"
+        class="default-input"
+        placeholder="Período"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-1">
+      <label for="input_reservation_qunits">Quartos:</label>
+      <input
+        name="input_reservation_qunits"
+        id="input_reservation_qunits"
+        type="number"
+        value=""
+        class="default-input"
+        placeholder="Quartos"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-1">
+      <label for="input_reservation_qpeoples">Adultos:</label>
+      <input
+        name="input_reservation_qpeoples"
+        id="input_reservation_qpeoples"
+        type="number"
+        value=""
+        class="default-input"
+        placeholder="Adultos"
+      />
+    </div>
+    <div class="col-span-5 md:col-span-1">
+      <label for="input_reservation_qchildren">Crianças:</label>
+      <input
+        name="input_reservation_qchildren"
+        id="input_reservation_qchildren"
+        type="number"
+        value=""
+        class="default-input"
+        placeholder="Crianças" 
+      />
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="min-h-auto">
+  <button type="submit" class="default-button">Enviar Formulário</button>
+</mat-dialog-actions>

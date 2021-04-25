@@ -1,0 +1,24 @@
+.wrap-maintenance{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  width: 550px;
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+
+  img{
+    padding: 100px 0px 80px;
+    margin: 0 auto;
+  }
+
+  p{
+    margin: 0 auto;
+  }
+
+  .contact-icons{
+    padding: 60px 0px 10px;
+  }
+}

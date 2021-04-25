@@ -1,0 +1,50 @@
+#section-home-city{
+  padding-top: 120px;
+  padding-bottom: 10px;
+
+  .city-content{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 60px 0px 40px;
+
+    .city-video{
+      width: 40%;
+      margin-right: 50px;
+      flex-shrink: 0;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+
+  .parallax-content{
+    padding: 30px 0px 150px;
+
+    .parallax-image{
+      height: 500px;
+    }
+  }
+}
+
+
+@include breakpoint('max', $show-menu-mobile) {
+  #section-home-city{
+    .city-content{
+      flex-flow: column nowrap;
+
+      .city-video{
+        width: 100%;
+        margin: auto;
+      }
+    }
+
+    .parallax-content{
+      .parallax-image{
+        height: 350px;
+      }
+    }
+  }
+}

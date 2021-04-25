@@ -1,0 +1,31 @@
+$font-size        : 14px;
+$line-height      : 24px;
+$font-size-small  : 11px;
+$line-height-small: 24px;
+$border-radius    : 4px;
+
+$show-menu-mobile : 995px;
+
+$colors: (
+  "primary"    : #24221B,
+  "secondary"  : #34322B,
+  "accent"     : #EFEEEE,
+  "primary-v1" : #45433C,
+  "primary-v2" : #57564F,
+  "primary-v3" : #6A5541,
+  "info"       : #1E3C6B,
+  "danger"     : #ff4136,
+  "sucess"     : #137752,
+  "warning"    : #ffb700
+);
+
+$breakpoints: (
+  "phone"        : 400px,
+  "phone-wide"   : 480px,
+  "phablet"      : 560px,
+  "tablet-small" : 640px,
+  "tablet"       : 768px,
+  "tablet-wide"  : 1024px,
+  "desktop"      : 1248px,
+  "desktop-wide" : 1440px
+);

@@ -1,0 +1,68 @@
+header{
+  border-top: 10px solid map_get($colors, 'primary-2');
+  position: relative;
+  top: 0;
+  transition: all 0s linear 0.33s;
+  background-color: #F5F5F5;
+  z-index: 2;
+  border-bottom: 1px solid transparent;
+
+  .container{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .3s ;
+
+    >img{
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    >a.button-menu-mobile{
+      display: none;
+    }
+  }
+
+  &.header-shrink{
+    position: sticky;
+    border-bottom: 1px solid #e2e2e2;
+
+    .container{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+
+
+@include breakpoint('max', $show-menu-mobile) {
+  header{
+    .container{
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      >a.button-menu-mobile{
+        position: absolute;
+        top: 30px;
+        right: 15px;
+        display: block;
+
+        i{
+          font-size: 24px;
+          padding: 10px 14px;
+          background: map_get($colors, 'primary-v2');
+          color: map_get($colors, 'accent');
+          @include with-prefix('border-radius', $border-radius);
+        }
+      }
+    }
+  }
+}

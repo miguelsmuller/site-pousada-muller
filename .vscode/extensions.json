@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "loiane.angular-extension-pack",
+    "loiane.ts-extension-pack",
+    "rbbit.typescript-hero",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

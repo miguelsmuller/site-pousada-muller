@@ -1,0 +1,290 @@
+$fildset-legend-color: map_get($colors, 'primary-v2');
+$fildset-legend-weight: 700;
+$fildset-legend-size: 18px;
+
+$input-size: 14px;
+$input-line-height: 20px;
+$input-color: map_get($colors, 'primary');
+$input-background: white;
+$input-boder-color: rgba(map_get($colors, 'primary'), .3 );
+$input-border-color-hover: map_get($colors, 'primary');
+$input-border-color-disable: map_get($colors, 'accent');
+$input-radius: $border-radius;
+
+$label-size: 11px;
+
+$placeholder-color: rgba(map_get($colors, 'primary'), .3 );
+$placeholder-size: 14px;
+
+/* # INPUTS
+================================================== */
+textarea {
+    resize:vertical;
+}
+
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email],
+input[type=password],
+textarea,
+select{
+  display: block;
+  border: none;
+  width: 100%;
+  padding: 9px 10px;
+  font-size: $input-size;
+  line-height: $input-line-height;
+  color: $input-color;
+
+  -webkit-transition: border-color .6, background-color .6s;
+  transition: border-color .6, background-color .6s;
+
+  &:hover, &:active, &:focus{
+    outline: none;
+    border-color: $input-border-color-hover;
+  }
+
+  &:disabled{
+    background-color: $input-border-color-disable;
+    border: 1px solid $input-border-color-disable;
+  }
+
+  @include placeholder{
+    color: $placeholder-color;
+    font-size: $placeholder-size;
+  }
+}
+
+/* # FORM
+================================================== */
+form{
+  margin: 0 auto;
+}
+
+/* # FILDSET
+================================================== */
+fieldset{
+  border: none;
+  padding: 0px;
+  margin: 25px 0px 0px;
+
+  &+ fieldset {
+    margin: 40px 0px 0px;
+  }
+
+  > legend{
+    color: $fildset-legend-color;
+    font-weight: $fildset-legend-weight;
+    font-size: $fildset-legend-size;
+  }
+}
+
+/* # FORM-GROUP
+================================================== */
+.form-group{
+  padding: 2px;
+  margin: 10px 0px;
+  flex-grow: 1;
+}
+
+/* # INPUT-FIELD
+================================================== */
+.input-field{
+  background-color: $input-background;
+  border: 1px solid $input-boder-color;
+  border-radius: $input-radius;
+  overflow: hidden;
+
+  > label {
+    padding-left: 10px;
+    font-size: $label-size;
+  }
+}
+
+/* # FLOATING-LABEL
+================================================== */
+.floating-label {
+    position:  relative;
+    width: 100%;
+
+    > input,
+    > textarea{
+      padding: 15px 10px;
+      line-height: 14px;
+    }
+
+    > textarea{
+      line-height: 25px;
+    }
+
+    > label {
+      position:  absolute;
+      top: calc(50% - 7px);
+      opacity:  0;
+      transition:  all .3s ease;
+      cursor: text;
+    }
+
+    >input:not(:placeholder-shown),
+    >textarea:not(:placeholder-shown) {
+      padding: 24px 10px 6px 10px;
+    }
+
+    >input:not(:placeholder-shown) + label,
+    >textarea:not(:placeholder-shown) + label  {
+      opacity: .7;
+      font-size: $label-size;
+      top: 1px;
+    }
+}
+
+/* # CUSTOM CHECK
+================================================== */
+$option-checked: map_get($colors, 'primary-v2');
+$option-background: map_get($colors, 'accent');
+
+.label-check {
+  display: block;
+  position: relative;
+  padding-left: 52px !important;
+  font-size: 14px !important;
+  cursor: pointer;
+  text-align: left;
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+
+    /* When the CHECKBOX is CHECKED */
+    &:checked ~ .checkmark,
+    &:checked ~ .radiomark {
+      background-color: $option-checked !important;
+      border: 1px solid $option-checked !important;
+
+      /* Show the CHECKMARK when CHECKED */
+      &:after {
+          display: block;
+      }
+    }
+
+    &:checked + .switche {
+      background-color: $option-checked !important;
+      border-color: $option-checked !important;
+
+      &:before{
+        background-color: $option-background;
+        -webkit-transform: translateX(16px);
+        -ms-transform: translateX(16px);
+        transform: translateX(16px);
+      }
+    }
+  }
+
+  /* CHECKBOX */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $option-background;
+    border: 1px solid $option-checked;
+    border-radius: 4px;
+    -webkit-transition: .3s;
+    transition: .3s;
+
+    /* CHECKBOX INDICATOR */
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 8px;
+      border: solid $option-background;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  /* RADIO */
+  .radiomark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $option-background;
+    border: 1px solid $option-checked;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    /* RADIO INDICATOR */
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+
+      top: 5px;
+      left: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $option-background;
+    }
+  }
+
+  /* SWITCHE */
+  .switche {
+    position: absolute;
+    cursor: pointer;
+    top: -1px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 22px;
+    width: 40px;
+    border-radius: 15px;
+    background-color: $option-background;
+    border: 1px solid $option-checked;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      left: 4px;
+      bottom: 3px;
+      background-color: $option-checked;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+  }
+
+  /* On mouse-over, add a background color */
+  &:hover{
+    input ~ .checkmark {
+      background-color: map_get($colors, 'white');
+    }
+
+    input ~ .radiomark {
+      background-color: map_get($colors, 'white');
+    }
+  }
+}

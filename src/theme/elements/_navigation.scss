@@ -1,0 +1,92 @@
+nav{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 100%;
+
+  >ul{
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    line-height: 24px;
+    font-size: 16px;
+
+    li{
+      cursor: pointer;
+      padding: 0px 2px;
+      margin: 0px 14px;
+      text-transform: uppercase;
+      border-bottom: 4px solid transparent;
+      @include with-prefix('transition', 'border-bottom .3s ease-in-out');
+
+      &.active,
+      &:active,
+      &:hover,
+      &:focus{
+        text-decoration: none;
+        border-bottom: 4px solid map_get($colors, 'primary-v3');
+      }
+
+      &:first-child{
+        margin-left: 0px;
+      }
+      &:last-child{
+        margin-right: 0px;
+      }
+
+      a{
+        color: map_get($colors, 'primary-v2');
+        font-weight: 600;
+      }
+
+      a.active,
+      a:active,
+      a:hover,
+      a:focus{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/* # BREAKPOINT FOR RESOLUTIONS LESS THAN 995PX
+================================================== */
+@include breakpoint('max', $show-menu-mobile) {
+  nav{
+    flex-flow: column nowrap;
+    width: 100%;
+    display: none;
+
+    ul{
+      flex-flow: column nowrap;
+      margin: 20px 0px;
+      margin-left: 0px;
+      height: 0px;
+      overflow: hidden;
+      @include with-prefix('transition', 'all .3s ease-in-out');
+
+      li{
+        border-bottom: none;
+        margin: 0px;
+        padding: 8px 16px;
+
+        &.active,
+        &:hover{
+          border-bottom: none;
+        }
+      }
+    }
+
+    &.open{
+      display: block;
+
+      ul{
+        height: auto;
+      }
+    }
+  }
+}

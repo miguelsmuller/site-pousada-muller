@@ -1,0 +1,20 @@
+footer{
+  text-align: center;
+  padding: 50px 0px 12px;
+  border-bottom: 10px solid map_get($colors, 'primary-2');
+
+  ul{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    list-style: none;
+
+    li{
+      padding: 0px 10px;
+    }
+  }
+
+  p{
+    padding: 2px 0px;
+  }
+}

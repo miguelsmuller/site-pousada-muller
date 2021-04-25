@@ -1,0 +1,116 @@
+/* # BUTTON
+================================================== */
+button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  padding: 12px 22px;
+}
+
+.btn {
+  border: none;
+  padding: 16px 32px;
+  @include border-radius();
+  @include text-weight("semibold");
+  @include with-prefix("transition", "all 0.2s ease");
+  background-color: #f4f4f4;
+  color: map-get($colors, 'primary' );
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &:focus-within {
+    text-decoration: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  /* BUTTONS COLORS */
+  @each $color in $colors {
+    &.btn-#{nth($color,1)} {
+      background: nth($color, 2);
+
+      @if ( lightness(nth($color, 2) ) > 50) {
+        color: map_get($colors, "primary");
+      } @else {
+        color: map_get($colors, "accent");
+      }
+
+
+      &:hover,
+      &:active,
+      &:focus-within {
+        background: darken(nth($color, 2), 15%);
+      }
+
+      &:disabled {
+        background: lighten(nth($color, 2), 5%);
+      }
+    }
+  }
+
+  /* BUTTONS SIZES */
+  &.btn-small {
+    padding: 10px 25px;
+  }
+
+  &.btn-large {
+    padding: 30px 65px;
+  }
+
+  /* BUTTONS WITH ICON */
+  &.btn-icon {
+    mat-icon {
+      font-size: 24px;
+      position: relative;
+      left: -6px;
+    }
+  }
+}
+
+.btn-group,
+.dt-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0px 10px;
+
+  .btn {
+    &:first-child {
+      border-radius: $border-radius 0px 0px $border-radius;
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0px;
+    }
+    &:last-child {
+      border-radius: 0px $border-radius $border-radius 0px;
+    }
+  }
+}
+
+.btn-float{
+  border-radius: 50%;
+  padding: 18px 20px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 999;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+
+  &.btn-float-open{
+    visibility: visible;
+    opacity: 1;
+
+    transition-delay: 0s;
+  }
+
+  i{
+    font-size: 32px;
+  }
+}

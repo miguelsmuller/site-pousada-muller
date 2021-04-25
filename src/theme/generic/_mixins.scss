@@ -1,0 +1,105 @@
+/* @mixin container($boxed: true, $padding: true) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @if $padding == true {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @if $boxed == true {
+    @media (min-width: 576px){
+      max-width: 576px;
+    }
+    @media (min-width: 768px){
+      max-width: 768px;
+    }
+    @media (min-width: 992px){
+      max-width: 992px;
+    }
+    @media (min-width: 1200px){
+      max-width: 1120px;
+    }
+  }
+} */
+
+@mixin with-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin border-radius() {
+  @include with-prefix("border-radius", $border-radius);
+}
+
+@mixin text-small() {
+  font-size: $font-size-small;
+  line-height: $font-size-small + 5;
+}
+
+@mixin text-weight($weight: "normal") {
+  @if $weight != "normal" and $weight != "semibold" and $weight != "bold" {
+    @error '{#{$weight}} is not a valid argument';
+  }
+
+  @if $weight == "normal" {
+    font-weight: 400;
+  } @else if $weight == "semibold" {
+    font-weight: 600;
+  } @else if $weight == "bold" {
+    font-weight: 700;
+  }
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+
+@mixin flex-row() {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
+}
+
+@mixin flex-center() {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin breakpoint($type: "max", $size: "") {
+  @if $size == "" {
+    @warn 'Warning: Necessario informar um breakpoint valido.';
+  }
+
+  @media (#{$type}-width: $size) {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}

@@ -1,0 +1,60 @@
+#section-home-depositions{
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.depositions-list{
+  background-color: map-get($colors , 'primary');
+  margin: 65px 0px 0px;
+  padding: 65px 0px;
+}
+
+.depositions-item{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+
+  .depositions-autor{
+    width: 40%;
+    flex-shrink: 0;
+
+    h2{
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: map-get($colors, 'accent' )
+    }
+  }
+  .depositions-message{
+    flex-grow: 1;
+    padding: 0px 115px;
+    color: map-get($colors, 'accent' );
+    border-left: 5px solid map-get($colors, 'primary-v2' );
+    font-size: 18px;
+    font-weight: normal;
+
+    p{
+      font-size: inherit;
+      font-weight: inherit;
+
+    }
+  }
+}
+
+
+
+@include breakpoint('max', $show-menu-mobile) {
+  .depositions-item{
+    flex-flow: column nowrap;
+
+    .depositions-autor{
+      width: 100%;
+    }
+    .depositions-message{
+      border-left: none;
+      padding: 0px 15px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.parallax-content{
+  .parallax-image{
+    background-color: map-get($colors, 'primary' );
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include with-prefix('filter', grayscale(65%) blur(0px));
+  }
+}

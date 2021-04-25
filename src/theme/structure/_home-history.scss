@@ -1,0 +1,18 @@
+#section-home-history{
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .history-content{
+    column-count: 2;
+    column-gap: 15px;
+    padding: 10px 0px;
+  }
+}
+
+@include breakpoint('max', $show-menu-mobile) {
+  #section-home-history{
+    .history-content{
+      column-count: 1;
+    }
+  }
+}

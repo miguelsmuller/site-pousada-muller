@@ -18,14 +18,16 @@ Website developed for commercial purposes for Pousada Müller located in Rio Cla
 
 ## **TO-DO**
 - [x] All site base 
-- [ ] [Improve image efficiency](https://web.dev/uses-optimized-images/?utm_source=lighthouse&utm_medium=unknown)
-- [ ] Input Mask - contact phone 
-- [ ] Input DataPicker - reservation period 
+- [ ] Improve image efficiency - https://web.dev/uses-optimized-images/?utm_source=lighthouse&utm_medium=unknown
+- [x] Input data picker in form reservation (period)
+- [ ] Input mask in form reservation (phone) 
+- [ ] Input image gallery
 - [ ] Expansion of gallery images
 - [ ] Dialog with video in the Rio Claro section
-- [ ] Dialog with map in the Contact section
+- [ ] Dialog with map in the contact section
 - [ ] Carrousel in the testimonials section
 - [ ] Email API integration
+- [ ] Micro-interações
 
 ## **DOC CONTENT** 
 * [Project Requirements](#project-requirements)

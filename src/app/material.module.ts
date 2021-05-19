@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
 // import { MatChipsModule } from '@angular/material/chips';
 // import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-// import { MatDatepickerModule } from '@angular/material/datepicker';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatMenuModule } from '@angular/material/menu';
@@ -35,7 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -48,7 +47,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     // MatCardModule,
     // MatCheckboxModule,
     // MatChipsModule,
-    // MatDatepickerModule,
     // MatGridListModule,
     // MatIconModule,
     // MatMenuModule,
@@ -78,6 +76,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatTabsModule,
     MatTooltipModule,
+    MatDatepickerModule,
     ReactiveFormsModule,
   ]
 })

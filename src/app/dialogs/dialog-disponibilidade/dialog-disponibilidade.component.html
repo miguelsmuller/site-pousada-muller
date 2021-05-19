@@ -39,15 +39,18 @@
     </div>
     <div class="col-span-5 md:col-span-2">
       <label for="input_reservation_period">Período da reserva:</label>
-      <input
-        name="input_reservation_period"
-        id="input_reservation_period"
-        type="text"
-        value=""
-        size="40"
-        class="default-input"
-        placeholder="Período"
-      />
+      <div class="relative">
+        <mat-date-range-input [rangePicker]="period" [min]="minDate" [max]="maxDate" class="default-input">
+          <input matStartDate placeholder="Início" (click)="period.open()">
+          <input matEndDate placeholder="Fim" (click)="period.open()">
+        </mat-date-range-input>
+        <button class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none" (click)="period.open()">
+          <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted fill-current text-heavy-metal-700 opacity-50">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path>
+          </svg>
+        </button>
+        <mat-date-range-picker touchUi #period></mat-date-range-picker>
+      </div>
     </div>
     <div class="col-span-5 md:col-span-1">
       <label for="input_reservation_qunits">Quartos:</label>
@@ -79,7 +82,7 @@
         type="number"
         value=""
         class="default-input"
-        placeholder="Crianças" 
+        placeholder="Crianças"
       />
     </div>
   </div>

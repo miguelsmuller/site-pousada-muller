@@ -18,7 +18,7 @@ Website developed for commercial purposes for Pousada Müller located in Rio Cla
 
 ## **TO-DO**
 - [x] All site base 
-- [ ] Improve image efficiency - https://web.dev/uses-optimized-images/?utm_source=lighthouse&utm_medium=unknown
+- [x] Improve image efficiency - https://web.dev/uses-optimized-images
 - [x] Input data picker in form reservation (period)
 - [ ] Input mask in form reservation (phone) 
 - [ ] Input image gallery
@@ -79,13 +79,13 @@ To report an issue, please [create a new pull request](https://github.com/miguel
 #### **SENDING CODE**  
 Before sending your collaboration, check your code and the conventions adopted in the project and take the following steps:
 
-- **Always check the branch used**: **`$ git status`**
-- **Update your branch**: **`$ git pull`**
-- **Rebase your branch**: **`$ git rebase -i HEAD~N`**
-- **See the differences before committing**: **`$ git diff --cached`**
-- **Delete locally develop branch**: **`$ git branch -d develop`**
-- **Delete remotely develop branch**: **`$ git push origin --delete develop`**
-- **Recreate develop branch**: **`$ git checkout -b develop`**
+- Always check the branch used: **`$ git status`**
+- Update your branch: **`$ git pull`**
+- Rebase your branch: **`$ git rebase -i HEAD~N`**
+- See the differences before committing: **`$ git diff --cached`**
+- Delete locally develop branch: **`$ git branch -d develop`**
+- Delete remotely develop branch: **`$ git push origin --delete develop`**
+- Recreate develop branch: **`$ git checkout -b develop`**
 
 #### **IMPORTANT INFORMATION**  
 - Do not commit before running the project locally
@@ -97,9 +97,9 @@ Before sending your collaboration, check your code and the conventions adopted i
 
 ## **DEPLOY**  
 Provisionally while the site is not in production the depoly will be done on github pages for being a free and easy to use alternative to host our website.
-- Generate production version with -  **`$ npm run build`**
-  - A folder with the name test will be created in the same directory as the current project 
-- Access the created folder
+- Generate production version with -  **`$ npm run build:prod`**
+  - A folder will be created in the same directory as the current project 
+- Access the created folder **`$ cd ./dist/pousada-muller-site`**
 - Init git with: **`$ git init`**
 - Add a origin with: **`$ git remote add origin git@github.com:miguelsmuller/pousada-muller-site.git`**
 - Create a branch gh-pages with: **`$ git checkout -b gh-pages`**

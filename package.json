@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot --build-optimizer --vendor-chunk --source-map=false --configuration=production --deploy-url=https://miguelsmuller.github.io/pousada-muller-site/ --base-href=/pousada-muller-site/ --output-path=../pousada-muller-site-gh-pages/",
+    "build": "ng build --build-optimizer --vendor-chunk --source-map=false",
+    "build:local": "ng build --aot --prod --build-optimizer --vendor-chunk --source-map=false",
+    "build:prod": "ng build --aot --prod --build-optimizer --vendor-chunk --source-map=false --deploy-url=https://miguelsmuller.github.io/pousada-muller-site/ --base-href=/pousada-muller-site/",
     "test": "ng test",
     "lint": "ng lint",
     "eslint": "eslint -c .eslintrc.js --ext .ts ./src/",
@@ -26,7 +28,7 @@
     "@angular/router": "11.2.11",
     "@fortawesome/fontawesome-free": "5.15.1",
     "moment": "2.29.1",
-    "owl.carousel2": "2.2.1",
+    "ngx-picture": "2.0.14",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.2"

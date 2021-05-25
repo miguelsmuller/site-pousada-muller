@@ -1,72 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400,500,600,700,800|Open+Sans:300,400,600,700,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@import '~@angular/material/theming';
-@include mat-core();
-
-$my-app-primary: mat-palette($mat-brown);
-$my-app-accent:  mat-palette($mat-pink);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
-@include angular-material-theme($my-app-theme);
+@import 'theme/fonts';
+@import 'theme/tailwind';
+@import 'theme/angular';
 
 html {
   scroll-behavior: smooth;
 }
 
-.default-button{
-  @apply px-6 py-4 rounded text-sm font-semibold border-transparent bg-heavy-metal-700 text-white hover:bg-heavy-metal-500 focus:bg-heavy-metal-500 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-heavy-metal-500;
-}
-
-::-webkit-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-::-moz-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-:-ms-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-:-moz-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.default-image{
-  @apply block p-0.5 box-content bg-white rounded-lg shadow-md border border-heavy-metal-200;
-
-  img{
-    @apply h-40 object-cover w-full rounded transition-all duration-200 ease-in-out;
-    -webkit-filter: grayscale(80%) sepia(15%) blur(0px);
-    -moz-filter: grayscale(80%) sepia(15%) blur(0px);
-    -ms-filter: grayscale(80%) sepia(15%) blur(0px);
-    -o-filter: grayscale(80%) sepia(15%) blur(0px);
-    filter: grayscale(80%) sepia(15%) blur(0px);
-
-    &:hover{
-      @apply filter-none;
-    }
-  }
-}
-
-.default-input{
-  @apply rounded p-2 block w-full appearance-none border transition duration-300 bg-white border-heavy-metal-200 focus:bg-white focus:border-transparent focus:outline-none focus:ring-1 focus:ring-heavy-metal-500;
-}
-
-.image-filter{
-  -webkit-filter: grayscale(80%) sepia(15%) blur(0px);
-  -moz-filter: grayscale(80%) sepia(15%) blur(0px);
-  -ms-filter: grayscale(80%) sepia(15%) blur(0px);
-  -o-filter: grayscale(80%) sepia(15%) blur(0px);
-  filter: grayscale(80%) sepia(15%) blur(0px);
-}
-
+/* # Main Menu
+================================================== */
 .main-menu{
   @apply w-full flex flex-col sm:flex-row items-center justify-end font-bold md:font-semibold uppercase gap-4 text-lg;
 
@@ -75,14 +16,8 @@ html {
   }
 }
 
-/* .main-menu{
-  @apply w-full flex flex-col sm:flex-row items-center justify-end font-bold md:font-semibold uppercase gap-2 text-lg;
-
-  &>*{
-    @apply px-2 transition-all duration-500 rounded-lg ease-in-out sm:hover:bg-heavy-metal-500 sm:hover:text-heavy-metal-50;
-  }
-} */
-
+/* # Dialog Utilities
+================================================== */
 .cdk-overlay-backdrop{
   @apply bg-opacity-60 bg-clip-padding backdrop-filter backdrop-blur-sm bg-heavy-metal-600;
 }
@@ -100,4 +35,23 @@ html {
   .mat-dialog-actions{
     @apply p-6 pb-3 md:pb-6 pt-3 m-0 flex justify-center md:justify-start border-b-8 border-heavy-metal-700;
   }
+}
+
+/* # Input Placeholder
+================================================== */
+::-webkit-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+::-moz-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+:-ms-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+:-moz-placeholder {
+  font-size: 14px;
+  font-weight: 600;
 }

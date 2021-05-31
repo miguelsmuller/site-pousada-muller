@@ -15,7 +15,6 @@ import { NgModule } from '@angular/core';
 // import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // import { MatSliderModule } from '@angular/material/slider';
 // import { MatSortModule } from '@angular/material/sort';
-// import { MatStepperModule } from '@angular/material/stepper';
 // import { MatTableModule } from '@angular/material/table';
 // import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MatTreeModule } from '@angular/material/tree';
@@ -29,6 +28,7 @@ import { NgModule } from '@angular/core';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
 // import { MatRadioModule } from '@angular/material/radio';
 // import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -41,7 +41,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { NgxPictureModule, CLOUDINARY_CONFIG } from 'ngx-picture';
-import { NgxMaskModule } from "ngx-mask";
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -56,6 +56,7 @@ import { NgxMaskModule } from "ngx-mask";
     MatTabsModule,
     MatTooltipModule,
     MatDatepickerModule,
+    MatStepperModule,
     ReactiveFormsModule,
     NgxPictureModule,
     NgxMaskModule
@@ -63,11 +64,11 @@ import { NgxMaskModule } from "ngx-mask";
   providers: [{
     provide: MAT_DATE_LOCALE,
     useValue: 'pt-BR'
-  },{
+  }, {
     provide: DateAdapter,
     useClass: MomentDateAdapter,
     deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-  },{
+  }, {
     provide: MAT_DATE_FORMATS,
     useValue: {
       parse: {

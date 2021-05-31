@@ -22,62 +22,64 @@ import { NgModule } from '@angular/core';
 // import { MatDividerModule } from '@angular/material/divider';
 // import { MatButtonModule } from '@angular/material/button';
 // import { MatListModule } from '@angular/material/list';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+// import { MatButtonToggleModule } from '@angular/material/button-toggle';
+// import { MatExpansionModule } from '@angular/material/expansion';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatProgressBarModule } from '@angular/material/progress-bar';
+// import { MatRadioModule } from '@angular/material/radio';
+// import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+
+import { NgxPictureModule, CLOUDINARY_CONFIG } from 'ngx-picture';
+import { NgxMaskModule } from "ngx-mask";
+
 @NgModule({
-  imports: [],
+  imports: [
+    NgxPictureModule.forRoot(CLOUDINARY_CONFIG),
+    NgxMaskModule.forRoot()
+  ],
   declarations: [],
   exports: [
-    // MatAutocompleteModule,
-    // MatBadgeModule,
-    // MatBottomSheetModule,
-    // MatCardModule,
-    // MatCheckboxModule,
-    // MatChipsModule,
-    // MatGridListModule,
-    // MatIconModule,
-    // MatMenuModule,
-    // MatNativeDateModule,
-    // MatPaginatorModule,
-    // MatSidenavModule,
-    // MatSliderModule,
-    // MatSlideToggleModule,
-    // MatSortModule,
-    // MatStepperModule,
-    // MatTableModule,
-    // MatToolbarModule,
-    // MatTreeModule,
-    // MatRippleModule,
-    // MatDividerModule,
-    // MatButtonModule,
-    // MatListModule,
-    MatFormFieldModule,
-    MatButtonToggleModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatInputModule,
-    MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
-    MatSelectModule,
+    MatDialogModule,
     MatSnackBarModule,
     MatTabsModule,
     MatTooltipModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-  ]
+    NgxPictureModule,
+    NgxMaskModule
+  ],
+  providers: [{
+    provide: MAT_DATE_LOCALE,
+    useValue: 'pt-BR'
+  },{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  },{
+    provide: MAT_DATE_FORMATS,
+    useValue: {
+      parse: {
+        dateInput: ['l', 'LL'],
+      },
+      display: {
+        dateInput: 'DD/MM/YYYY',
+        monthYearLabel: 'MMM YYYY',
+        dateA11yLabel: 'LL',
+        monthYearA11yLabel: 'MMMM YYYY',
+      },
+    }
+  }]
 })
-export class MaterialModule { }
+export class ExternalModule { }

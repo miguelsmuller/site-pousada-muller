@@ -28,7 +28,7 @@ export class SectionCoverComponent implements OnInit {
     const formularioCriarCargo = this.dialog.open(DialogDisponibilidadeComponent, formConfig);
 
     formularioCriarCargo.afterClosed().subscribe((data) => {
-      console.log(data);
+      //console.log(data);
     });
   }
 

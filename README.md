@@ -16,19 +16,6 @@ Website developed for commercial purposes for Pousada Müller located in Rio Cla
 - **License:** Proprietary - Private Use - All rights reserved. 
 - **Available for consultation and study only**
 
-## **TO-DO**
-- [x] All site base 
-- [x] Improve image efficiency - https://web.dev/uses-optimized-images
-- [x] Input data picker in form reservation (period)
-- [ ] Input mask in form reservation (phone) 
-- [ ] Input image gallery
-- [ ] Expansion of gallery images
-- [ ] Dialog with video in the Rio Claro section
-- [ ] Dialog with map in the contact section
-- [ ] Carrousel in the testimonials section
-- [ ] Email API integration
-- [ ] Micro-interações
-
 ## **DOC CONTENT** 
 * [Project Requirements](#project-requirements)
 * [Running Locally](#running-locally)
@@ -121,4 +108,4 @@ The old version of this site can be found for study at the branch **[WordPress O
 New Version - 2020
 
 = **1.0.0 - 26/09/2013** =  
-First version
+First version - 2013

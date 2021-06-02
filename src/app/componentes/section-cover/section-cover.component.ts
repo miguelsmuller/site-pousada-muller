@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
-import { DialogDisponibilidadeComponent } from '@app/dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
+import { DialogDisponibilidadeComponent } from '@app/componentes/dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
 
 @Component({
   selector: 'app-section-cover',

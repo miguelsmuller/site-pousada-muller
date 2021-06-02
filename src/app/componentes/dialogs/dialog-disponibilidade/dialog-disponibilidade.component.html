@@ -26,6 +26,13 @@
 
     <mat-step [stepControl]="formReservationGroup" [completed]="false" label="Formulário">
       <form [formGroup]="formReservationGroup">
+        <input
+          id="input_form_type"
+          name="input_form_type"
+          formControlName="input_form_type"
+          type="hidden"
+          value="reservation"
+        />
         <div class="grid grid-cols-5 gap-4">
           <div class="col-span-5">
             <label for="input_reservation_name">Nome Completo:</label>
@@ -72,7 +79,7 @@
           <div class="col-span-5 md:col-span-2">
             <label for="input_reservation_period">Período da reserva:</label>
             <div class="relative">
-              <mat-date-range-input [rangePicker]="period" [min]="minDate" [max]="maxDate" class="default-input">
+              <mat-date-range-input [rangePicker]="period" [min]="formMinDate" [max]="formMaxDate" class="default-input">
                 <input matStartDate formControlName="input_reservation_period1" placeholder="Início" (click)="period.open()">
                 <input matEndDate formControlName="input_reservation_period2" placeholder="Fim" (click)="period.open()">
               </mat-date-range-input>
@@ -124,8 +131,11 @@
             />
           </div>
         </div>
-        <div class="pt-2">
-          <button type="submit" class="default-button" [disabled]="!formReservationGroup.valid">Enviar Formulário</button>
+        <div class="pt-4 flex gap-4 items-center justify-between">
+          <button type="submit" class="default-button flex-0" [disabled]="!formReservationGroup.valid" (click)="sendReservation(formReservationGroup)">Enviar Formulário</button>
+          <div class="flex-1 text-xs text-center">
+            {{formStatus}}
+          </div>
         </div>
       </form>
     </mat-step>

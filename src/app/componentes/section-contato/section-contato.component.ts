@@ -32,7 +32,7 @@ export class SectionContatoComponent implements OnInit {
   }
 
   sendReservation(formData: FormGroup): void{
-    this.emailService.proceedContact(formData).subscribe(
+    this.emailService.doCommunication(formData).subscribe(
       susc => { this.formStatus = 'Sua manifestação foi enviada com sucesso.'; },
       erro => { console.log(erro); this.formStatus = erro.message; }
     );

@@ -86,7 +86,7 @@ Before sending your collaboration, check your code and the conventions adopted i
 Provisionally while the site is not in production the depoly will be done on github pages for being a free and easy to use alternative to host our website.
 - Generate production version with -  **`$ npm run build:prod`**
   - A folder will be created in the same directory as the current project 
-- Access the created folder **`$ cd ./dist/pousada-muller-site`**
+- Access the created folder **`$ cd ./www`**
 - Init git with: **`$ git init`**
 - Add a origin with: **`$ git remote add origin git@github.com:miguelsmuller/pousada-muller-site.git`**
 - Create a branch gh-pages with: **`$ git checkout -b gh-pages`**

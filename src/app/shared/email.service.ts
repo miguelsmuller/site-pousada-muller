@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { forkJoin, Observable, of, throwError } from 'rxjs';
+import { forkJoin, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
@@ -17,6 +17,31 @@ export class EmailService {
   constructor(
     private serviceRequest: HttpClient
   ) { }
+
+  doCommunication(data: FormGroup, ): Observable<any> {
+    let actions = {};
+
+    if (data.value.input_reservation_mail === 'form_type_reservation') {
+      actions = {
+        emailReservationClient: this.sendReservationClient(data),
+        emailReservationPousada: this.sendReservationPousada(data)
+      };
+    } else if (data.value.input_reservation_mail === 'form_type_contact') {
+      actions = {
+        emailReservationClient: this.sendContactClient(data),
+        emailReservationPousada: this.sendContactPousada(data)
+      };
+    } else {
+      return throwError({code: '000', message: 'Unspecified process'});
+    }
+
+    return forkJoin(actions)
+    .pipe(
+      catchError(error => {
+        return throwError({code: error.status, message: error.message});
+      })
+    );
+  }
 
   private sendEmail(data: IEmail): Observable<any>{
     this.emailInSending = true;
@@ -37,19 +62,7 @@ export class EmailService {
     );
   }
 
-  proceedReservation(data: FormGroup, ): Observable<any> {
-    return forkJoin({
-        emailReservationClient: this.sendProceedReservationClient(data),
-        emailReservationPousada: this.sendProceedReservationPousada(data)
-    })
-    .pipe(
-      catchError(error => {
-        return throwError({code: error.status, message: error.message});
-      })
-    );
-  }
-
-  private sendProceedReservationClient(data: FormGroup, ): Observable<any> {
+  private sendReservationClient(data: FormGroup, ): Observable<any> {
     let clientEmailData: IEmail = {
       fromName: 'Pousada Müller',
       fromEmail: 'contato@hotelmulller.com.br',
@@ -74,7 +87,7 @@ export class EmailService {
     return this.sendEmail(clientEmailData);
   }
 
-  private sendProceedReservationPousada(data: FormGroup, ): Observable<any> {
+  private sendReservationPousada(data: FormGroup, ): Observable<any> {
     let pousadaDataEmail: IEmail = {
       fromName: data.value.input_reservation_name,
       fromEmail: data.value.input_reservation_mail,
@@ -98,19 +111,7 @@ export class EmailService {
     return this.sendEmail(pousadaDataEmail);
   }
 
-  proceedContact(data: FormGroup, ): Observable<any> {
-    return forkJoin({
-        emailReservationClient: this.sendProceedContactClient(data),
-        emailReservationPousada: this.sendProceedContactPousada(data)
-    })
-    .pipe(
-      catchError(error => {
-        return throwError({code: error.status, message: error.message});
-      })
-    );
-  }
-
-  private sendProceedContactClient(data: FormGroup, ): Observable<any> {
+  private sendContactClient(data: FormGroup, ): Observable<any> {
     let clientEmailData: IEmail = {
       fromName: 'Pousada Müller',
       fromEmail: 'contato@hotelmulller.com.br',
@@ -135,7 +136,7 @@ export class EmailService {
     return this.sendEmail(clientEmailData);
   }
 
-  private sendProceedContactPousada(data: FormGroup, ): Observable<any> {
+  private sendContactPousada(data: FormGroup, ): Observable<any> {
     let pousadaDataEmail: IEmail = {
       fromName: data.value.input_reservation_name,
       fromEmail: data.value.input_reservation_mail,
@@ -158,6 +159,4 @@ export class EmailService {
 
     return this.sendEmail(pousadaDataEmail);
   }
-
-
 }

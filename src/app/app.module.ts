@@ -16,13 +16,11 @@ import { SectionAcomodacoesComponent } from './componentes/section-acomodacoes/s
 import { SectionDepoimentosComponent } from './componentes/section-depoimentos/section-depoimentos.component';
 import { SectionCidadeComponent } from './componentes/section-cidade/section-cidade.component';
 import { SectionContatoComponent } from './componentes/section-contato/section-contato.component';
+import { DialogMapComponent } from './componentes/dialogs/dialog-map/dialog-map.component';
+import { DialogImageComponent } from './componentes/dialogs/dialog-image/dialog-image.component';
+import { DialogDisponibilidadeComponent } from './componentes/dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
 
 import { PageHomeComponent } from './pages/page-home/page-home.component';
-import { PageContatoComponent } from './pages/page-contato/page-contato.component';
-
-import { DialogMapComponent } from './dialogs/dialog-map/dialog-map.component';
-import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.component';
-import { DialogDisponibilidadeComponent } from './dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +35,6 @@ import { DialogDisponibilidadeComponent } from './dialogs/dialog-disponibilidade
     SectionCidadeComponent,
     SectionContatoComponent,
     PageHomeComponent,
-    PageContatoComponent,
     DialogMapComponent,
     DialogImageComponent,
     DialogDisponibilidadeComponent

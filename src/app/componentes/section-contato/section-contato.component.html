@@ -61,7 +61,14 @@
 
   <div class="flex flex-col md:flex-row">
     <div class="w-full md:w-1/2">
-      <form>
+      <form [formGroup]="formContactGroup">
+        <input
+          id="input_form_type"
+          name="input_form_type"
+          formControlName="input_form_type"
+          type="hidden"
+          value="contact"
+        />
         <fieldset>
           <legend class="text-xl font-bold pb-2">Formulário de Contato</legend>
 
@@ -70,18 +77,33 @@
 
           <div class="grid grid-cols-6 gap-4 py-2">
             <div class="col-span-6">
-              <label for="full-name" class="block text-sm font-semibold">Qual seu nome completo?</label>
-              <input type="text" id="full-name" autocomplete="given-name" class="default-input">
+              <label for="input_contact_name" class="block text-sm font-semibold">Qual seu nome completo?</label>
+              <input
+                type="text"
+                id="input_contact_name"
+                name="input_contact_name"
+                formControlName="input_contact_name"
+                class="default-input">
             </div>
 
             <div class="col-span-6">
-              <label for="email" class="block text-sm font-semibold">Qual seu E-Mail?</label>
-              <input type="text" id="email" class="default-input">
+              <label for="input_contact_email" class="block text-sm font-semibold">Qual seu E-Mail?</label>
+              <input
+                type="text"
+                id="input_contact_email"
+                name="input_contact_email"
+                formControlName="input_contact_email"
+                class="default-input">
             </div>
 
             <div class="col-span-6">
-              <label for="country" class="block text-sm font-semibold">Qual tipo de manifestação você quer fazer:</label>
-              <select id="country" autocomplete="country" class="default-input">
+              <label for="input_contact_tipo" class="block text-sm font-semibold">Qual tipo de manifestação você quer fazer:</label>
+              <select
+                id="input_contact_tipo"
+                name="input_contact_tipo"
+                formControlName="input_contact_tipo"
+                autocomplete="input_contact_tipo"
+                class="default-input">
                 <option value="">Selecione um tipo de manifestação</option>
                 <option value="Dúvida">Dúvida</option>
                 <option value="Reclamação">Reclamação</option>
@@ -92,18 +114,30 @@
             </div>
 
             <div class="col-span-6">
-              <label for="subject" class="block text-sm font-semibold">Sobre qual assunto você quer falar?</label>
-              <input type="text" id="subject" class="default-input">
+              <label for="input_contact_assunto" class="block text-sm font-semibold">Sobre qual assunto você quer falar?</label>
+              <input
+                type="text"
+                id="input_contact_assunto"
+                name="input_contact_assunto"
+                formControlName="input_contact_assunto"
+                class="default-input">
             </div>
 
             <div class="col-span-6">
-              <label for="message" class="block text-sm font-semibold">Qual a mensagem que deseja enviar:</label>
-              <textarea id="message" cols="40" rows="4" class="default-input"></textarea>
+              <label for="input_contact_mensagem" class="block text-sm font-semibold">Qual a mensagem que deseja enviar:</label>
+              <textarea
+                id="input_contact_mensagem"
+                name="input_contact_mensagem"
+                formControlName="input_contact_mensagem"
+                cols="40"
+                rows="4"
+                class="default-input">
+              </textarea>
             </div>
           </div>
         </fieldset>
 
-        <input type="submit" value="Enviar Formulário" class="default-button mt-4" />
+        <input type="submit" value="Enviar Formulário" class="default-button mt-4" [disabled]="!formContactGroup.valid" (click)="sendReservation(formContactGroup)" />
       </form>
     </div>
 

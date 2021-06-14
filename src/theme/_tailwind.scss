@@ -18,7 +18,8 @@
   }
 
   .default-image{
-    @apply block p-0.5 box-content bg-white rounded-lg shadow-md border border-heavy-metal-200;
+    //p-0.5 - border-heavy-metal-200
+    @apply block box-content bg-white rounded-lg shadow-md border;
 
     .ngx-picture__picture {
       @apply max-h-full h-auto w-auto;

@@ -42,6 +42,7 @@ import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/mat
 
 import { NgxPictureModule, CLOUDINARY_CONFIG } from 'ngx-picture';
 import { NgxMaskModule } from 'ngx-mask';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { NgxMaskModule } from 'ngx-mask';
     MatStepperModule,
     ReactiveFormsModule,
     NgxPictureModule,
-    NgxMaskModule
+    NgxMaskModule,
+    SwiperModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE,

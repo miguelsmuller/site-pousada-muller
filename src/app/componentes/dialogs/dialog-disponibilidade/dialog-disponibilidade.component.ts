@@ -48,7 +48,7 @@ export class DialogDisponibilidadeComponent implements OnInit {
   }
 
   sendReservation(formData: FormGroup): void{
-    this.emailService.doCommunication(formData).subscribe(
+    this.emailService.senfForm(formData).subscribe(
       susc => { this.formStatus = 'Sua solicitação foi enviada com sucesso.'; },
       erro => { console.log(erro); this.formStatus = erro.message; }
     );

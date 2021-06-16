@@ -1,3 +1,4 @@
+import { EmailService } from '@app/shared/email.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public menuShow:boolean = false;
 
-  constructor() { }
+  constructor(
+    private emailService: EmailService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +19,10 @@ export class HeaderComponent implements OnInit {
   toggle() {
     this.menuShow = !this.menuShow;
     console.log(this.menuShow);
+  }
+
+  openReservationDialog() {
+    this.emailService.openReservationDialog();
   }
 
 }

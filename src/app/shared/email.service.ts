@@ -3,9 +3,12 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { forkJoin, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { environment } from '@env/environment';
 import { IEmail } from '@app/shared/email.interface';
+import { DialogDisponibilidadeComponent } from '@app/componentes/dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +18,23 @@ export class EmailService {
   public emailInSending = false;
 
   constructor(
-    private serviceRequest: HttpClient
+    private serviceRequest: HttpClient,
+    private dialog: MatDialog,
   ) { }
 
-  doCommunication(data: FormGroup, ): Observable<any> {
+  public openReservationDialog() {
+    const formConfig = new MatDialogConfig();
+    formConfig.panelClass = 'mat-dialog';
+    formConfig.disableClose = false;
+    formConfig.autoFocus = true;
+    formConfig.data = '';
+
+    const formularioCriarCargo = this.dialog.open(DialogDisponibilidadeComponent, formConfig);
+
+    formularioCriarCargo.afterClosed().subscribe((data) => {});
+  }
+
+  public senfForm(data: FormGroup, ): Observable<any> {
     let actions = {};
 
     if (data.value.input_reservation_mail === 'form_type_reservation') {

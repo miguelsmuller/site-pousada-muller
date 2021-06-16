@@ -6,16 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* # Main Menu
-================================================== */
-.main-menu{
-  @apply w-full flex flex-col sm:flex-row items-center justify-end font-bold md:font-semibold uppercase gap-4 text-lg;
-
-  &>*{
-    @apply transition-all duration-500 rounded ease-in-out border-transparent sm:hover:border-heavy-metal-500 border-b-4;
-  }
-}
-
 /* # Dialog Utilities
 ================================================== */
 .cdk-overlay-backdrop{

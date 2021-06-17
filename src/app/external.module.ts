@@ -45,10 +45,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
-  imports: [
-    NgxPictureModule.forRoot(CLOUDINARY_CONFIG),
-    NgxMaskModule.forRoot()
-  ],
+  imports: [NgxPictureModule.forRoot(CLOUDINARY_CONFIG), NgxMaskModule.forRoot()],
   declarations: [],
   exports: [
     MatProgressSpinnerModule,
@@ -61,28 +58,32 @@ import { SwiperModule } from 'swiper/angular';
     ReactiveFormsModule,
     NgxPictureModule,
     NgxMaskModule,
-    SwiperModule
+    SwiperModule,
   ],
-  providers: [{
-    provide: MAT_DATE_LOCALE,
-    useValue: 'pt-BR'
-  }, {
-    provide: DateAdapter,
-    useClass: MomentDateAdapter,
-    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-  }, {
-    provide: MAT_DATE_FORMATS,
-    useValue: {
-      parse: {
-        dateInput: ['l', 'LL'],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'pt-BR',
+    },
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
+        parse: {
+          dateInput: ['l', 'LL'],
+        },
+        display: {
+          dateInput: 'DD/MM/YYYY',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY',
+        },
       },
-      display: {
-        dateInput: 'DD/MM/YYYY',
-        monthYearLabel: 'MMM YYYY',
-        dateA11yLabel: 'LL',
-        monthYearA11yLabel: 'MMMM YYYY',
-      },
-    }
-  }]
+    },
+  ],
 })
-export class ExternalModule { }
+export class ExternalModule {}

@@ -1,19 +1,26 @@
 <h2 mat-dialog-title>Verificar Disponibilidade</h2>
 <mat-dialog-content>
   <mat-horizontal-stepper linear="true" #stepper>
-
-   <mat-step [stepControl]="formTermsGroup" [completed]="false" label="Termos">
+    <mat-step [stepControl]="formTermsGroup" [completed]="false" label="Termos">
       <form [formGroup]="formTermsGroup" class="flex flex-col">
-        <p class="py-2">O Preenchimento do formulário a seguir não é garantia de que a reserva será efetuada. A Pousada ao receber as informações desse formulário e verificando a disponibilidade conforme sua demanda entrará em contato para dar continuidade ao processo de reserva.</p>
+        <p class="py-2">
+          O Preenchimento do formulário a seguir não é garantia de que a reserva será efetuada. A Pousada ao receber as
+          informações desse formulário e verificando a disponibilidade conforme sua demanda entrará em contato para dar
+          continuidade ao processo de reserva.
+        </p>
 
-        <p class="py-2">Dessa forma solicitamos que o formulário seja preenchido com as informações corretas de forma que possamos entrar em contato tão logo quanto seja possível.</p>
+        <p class="py-2">
+          Dessa forma solicitamos que o formulário seja preenchido com as informações corretas de forma que possamos
+          entrar em contato tão logo quanto seja possível.
+        </p>
 
         <label class="py-4 inline-flex items-center">
           <input
-          id="agreeToTerms"
-          type="checkbox"
-          formControlName="agreeToTerms"
-          class="h-5 w-5 rounded text-heavy-metal-500 last:form-checkbox appearance-none focus:ring-heavy-metal-500" required
+            id="agreeToTerms"
+            type="checkbox"
+            formControlName="agreeToTerms"
+            class="h-5 w-5 rounded text-heavy-metal-500 last:form-checkbox appearance-none focus:ring-heavy-metal-500"
+            required
           />
           <span class="ml-2 text-heavy-metal-500">Concordo com os termos</span>
         </label>
@@ -79,13 +86,46 @@
           <div class="col-span-5 md:col-span-2">
             <label for="input_reservation_period">Período da reserva:</label>
             <div class="relative">
-              <mat-date-range-input [rangePicker]="period" [min]="formMinDate" [max]="formMaxDate" class="default-input">
-                <input matStartDate formControlName="input_reservation_period1" placeholder="Início" (click)="period.open()">
-                <input matEndDate formControlName="input_reservation_period2" placeholder="Fim" (click)="period.open()">
+              <mat-date-range-input
+                [rangePicker]="period"
+                [min]="formMinDate"
+                [max]="formMaxDate"
+                class="default-input"
+              >
+                <input
+                  matStartDate
+                  formControlName="input_reservation_period1"
+                  placeholder="Início"
+                  (click)="period.open()"
+                />
+                <input
+                  matEndDate
+                  formControlName="input_reservation_period2"
+                  placeholder="Fim"
+                  (click)="period.open()"
+                />
               </mat-date-range-input>
-              <button class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none" (click)="period.open()">
-                <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted fill-current text-heavy-metal-700 opacity-50">
-                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"></path>
+              <button
+                class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none"
+                (click)="period.open()"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  height="24px"
+                  fill="currentColor"
+                  focusable="false"
+                  class="
+                    mat-datepicker-toggle-default-icon
+                    ng-star-inserted
+                    fill-current
+                    text-heavy-metal-700
+                    opacity-50
+                  "
+                >
+                  <path
+                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+                  ></path>
                 </svg>
               </button>
               <mat-date-range-picker touchUi #period></mat-date-range-picker>
@@ -132,9 +172,16 @@
           </div>
         </div>
         <div class="pt-4 flex gap-4 items-center justify-between">
-          <button type="submit" class="default-button flex-0" [disabled]="!formReservationGroup.valid" (click)="sendReservation(formReservationGroup)">Enviar Formulário</button>
+          <button
+            type="submit"
+            class="default-button flex-0"
+            [disabled]="!formReservationGroup.valid"
+            (click)="sendReservation(formReservationGroup)"
+          >
+            Enviar Formulário
+          </button>
           <div class="flex-1 text-xs text-center">
-            {{formStatus}}
+            {{ formStatus }}
           </div>
         </div>
       </form>

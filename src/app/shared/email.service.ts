@@ -9,18 +9,14 @@ import { environment } from '@env/environment';
 import { IEmail } from '@app/shared/email.interface';
 import { DialogDisponibilidadeComponent } from '@app/componentes/dialogs/dialog-disponibilidade/dialog-disponibilidade.component';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmailService {
   private emailApi = environment.emailApi;
   public emailInSending = false;
 
-  constructor(
-    private serviceRequest: HttpClient,
-    private dialog: MatDialog,
-  ) { }
+  constructor(private serviceRequest: HttpClient, private dialog: MatDialog) {}
 
   public openReservationDialog() {
     const formConfig = new MatDialogConfig();
@@ -34,32 +30,31 @@ export class EmailService {
     formularioCriarCargo.afterClosed().subscribe((data) => {});
   }
 
-  public senfForm(data: FormGroup, ): Observable<any> {
+  public senfForm(data: FormGroup): Observable<any> {
     let actions = {};
 
     if (data.value.input_reservation_mail === 'form_type_reservation') {
       actions = {
         emailReservationClient: this.sendReservationClient(data),
-        emailReservationPousada: this.sendReservationPousada(data)
+        emailReservationPousada: this.sendReservationPousada(data),
       };
     } else if (data.value.input_reservation_mail === 'form_type_contact') {
       actions = {
         emailReservationClient: this.sendContactClient(data),
-        emailReservationPousada: this.sendContactPousada(data)
+        emailReservationPousada: this.sendContactPousada(data),
       };
     } else {
-      return throwError({code: '000', message: 'Unspecified process'});
+      return throwError({ code: '000', message: 'Unspecified process' });
     }
 
-    return forkJoin(actions)
-    .pipe(
-      catchError(error => {
-        return throwError({code: error.status, message: error.message});
+    return forkJoin(actions).pipe(
+      catchError((error) => {
+        return throwError({ code: error.status, message: error.message });
       })
     );
   }
 
-  private sendEmail(data: IEmail): Observable<any>{
+  private sendEmail(data: IEmail): Observable<any> {
     this.emailInSending = true;
 
     const httpUrl = `${this.emailApi.emailApiUrl}/messages`;
@@ -68,17 +63,14 @@ export class EmailService {
     const httpBody = new FormData();
     httpBody.set('from', `${data.fromName}<${data.fromEmail}>`);
     httpBody.set('to', `${data.toName}<${data.toEmail}>`);
-    httpBody.set('subject', data.subejct );
+    httpBody.set('subject', data.subejct);
     httpBody.set('h:Reply-To', data.replyTo);
     httpBody.set('html', data.content);
 
-    return this.serviceRequest.post<any>(httpUrl, httpBody, { headers: httpHeader })
-    .pipe(
-      retry(2)
-    );
+    return this.serviceRequest.post<any>(httpUrl, httpBody, { headers: httpHeader }).pipe(retry(2));
   }
 
-  private sendReservationClient(data: FormGroup, ): Observable<any> {
+  private sendReservationClient(data: FormGroup): Observable<any> {
     let clientEmailData: IEmail = {
       fromName: 'Pousada Müller',
       fromEmail: 'contato@hotelmulller.com.br',
@@ -86,7 +78,7 @@ export class EmailService {
       toName: data.value.input_reservation_name,
       toEmail: data.value.input_reservation_mail,
       subejct: 'Pousada Müller - Solicitação de Reserva',
-      content: ''
+      content: '',
     };
 
     const htmlEmailClient = `<p>Olá <span style="font-weight:bold">${clientEmailData.toName}</span></p>
@@ -98,12 +90,12 @@ export class EmailService {
     <p><a href="https://www.hotelmuller.com.br" target="_blank">https://www.hotelmuller.com.br</a><br>
     <a href="http://www.facebook.com.br/hotelmuller" target="_blank">http://www.facebook.com.br/hotemuller</a></p>`;
 
-    clientEmailData = {...clientEmailData, content: htmlEmailClient};
+    clientEmailData = { ...clientEmailData, content: htmlEmailClient };
 
     return this.sendEmail(clientEmailData);
   }
 
-  private sendReservationPousada(data: FormGroup, ): Observable<any> {
+  private sendReservationPousada(data: FormGroup): Observable<any> {
     let pousadaDataEmail: IEmail = {
       fromName: data.value.input_reservation_name,
       fromEmail: data.value.input_reservation_mail,
@@ -111,7 +103,7 @@ export class EmailService {
       toName: 'Pousada Müller',
       toEmail: 'contato@hotelmuller.com.br',
       subejct: `Site - Reserva - ${data.value.input_reservation_name}`,
-      content: ''
+      content: '',
     };
 
     const htmlEmailPousada = `<p><strong>Remetente:</strong> ${pousadaDataEmail.fromName}<[${pousadaDataEmail.fromEmail}]></p>
@@ -122,12 +114,12 @@ export class EmailService {
     <p><strong>D. Entrada:</strong> ${data.value.input_reservation_period1}</p>
     <p><strong>D. Saída:</strong> ${data.value.input_reservation_period2}</p>`;
 
-    pousadaDataEmail = {...pousadaDataEmail, content: htmlEmailPousada};
+    pousadaDataEmail = { ...pousadaDataEmail, content: htmlEmailPousada };
 
     return this.sendEmail(pousadaDataEmail);
   }
 
-  private sendContactClient(data: FormGroup, ): Observable<any> {
+  private sendContactClient(data: FormGroup): Observable<any> {
     let clientEmailData: IEmail = {
       fromName: 'Pousada Müller',
       fromEmail: 'contato@hotelmulller.com.br',
@@ -135,7 +127,7 @@ export class EmailService {
       toName: data.value.input_reservation_name,
       toEmail: data.value.input_reservation_mail,
       subejct: 'Pousada Müller - Solicitação de Reserva',
-      content: ''
+      content: '',
     };
 
     const htmlEmailClient = `<p>Olá <span style="font-weight:bold">${clientEmailData.toName}</span></p>
@@ -147,12 +139,12 @@ export class EmailService {
     <p><a href="https://www.hotelmuller.com.br" target="_blank">https://www.hotelmuller.com.br</a><br>
     <a href="http://www.facebook.com.br/hotelmuller" target="_blank">http://www.facebook.com.br/hotemuller</a></p>`;
 
-    clientEmailData = {...clientEmailData, content: htmlEmailClient};
+    clientEmailData = { ...clientEmailData, content: htmlEmailClient };
 
     return this.sendEmail(clientEmailData);
   }
 
-  private sendContactPousada(data: FormGroup, ): Observable<any> {
+  private sendContactPousada(data: FormGroup): Observable<any> {
     let pousadaDataEmail: IEmail = {
       fromName: data.value.input_reservation_name,
       fromEmail: data.value.input_reservation_mail,
@@ -160,7 +152,7 @@ export class EmailService {
       toName: 'Pousada Müller',
       toEmail: 'contato@hotelmuller.com.br',
       subejct: `Site - Reserva - ${data.value.input_reservation_name}`,
-      content: ''
+      content: '',
     };
 
     const htmlEmailPousada = `<p><strong>Remetente:</strong> ${pousadaDataEmail.fromName}<[${pousadaDataEmail.fromEmail}]></p>
@@ -171,7 +163,7 @@ export class EmailService {
     <p><strong>D. Entrada:</strong> ${data.value.input_reservation_period1}</p>
     <p><strong>D. Saída:</strong> ${data.value.input_reservation_period2}</p>`;
 
-    pousadaDataEmail = {...pousadaDataEmail, content: htmlEmailPousada};
+    pousadaDataEmail = { ...pousadaDataEmail, content: htmlEmailPousada };
 
     return this.sendEmail(pousadaDataEmail);
   }

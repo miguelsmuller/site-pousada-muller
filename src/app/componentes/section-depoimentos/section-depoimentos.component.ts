@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import SwiperCore, { Navigation } from "swiper/core";
+import SwiperCore, { Navigation } from 'swiper/core';
 SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-section-depoimentos',
   templateUrl: './section-depoimentos.component.html',
-  styleUrls: ['./section-depoimentos.component.scss']
+  styleUrls: ['./section-depoimentos.component.scss'],
 })
-export class SectionDepoimentosComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class SectionDepoimentosComponent {
+  constructor() {}
 }

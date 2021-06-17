@@ -1,20 +1,15 @@
 import { EmailService } from '@app/shared/email.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  public menuShow:boolean = false;
+export class HeaderComponent {
+  public menuShow: boolean = false;
 
-  constructor(
-    private emailService: EmailService
-  ) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private emailService: EmailService) {}
 
   toggle() {
     this.menuShow = !this.menuShow;
@@ -24,5 +19,4 @@ export class HeaderComponent implements OnInit {
   openReservationDialog() {
     this.emailService.openReservationDialog();
   }
-
 }

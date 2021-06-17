@@ -37,7 +37,7 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
     PageHomeComponent,
     DialogMapComponent,
     DialogImageComponent,
-    DialogDisponibilidadeComponent
+    DialogDisponibilidadeComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +48,6 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
     //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

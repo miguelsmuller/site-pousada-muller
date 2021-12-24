@@ -1,4 +1,4 @@
-const { guessProductionMode } = require("@ngneat/tailwind");
+const { guessProductionMode } = require('@ngneat/tailwind');
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
@@ -8,22 +8,24 @@ module.exports = {
   prefix: '',
   mode: 'jit',
   purge: {
-    content: [ './src/**/*.{html,ts,css,scss,sass,less,styl}' ]
+    content: ['./src/**/*.{html,ts,css,scss,sass,less,styl}'],
   },
   darkMode: false,
   theme: {
     screens: {
       ...defaultTheme.screens,
       md: '770px',
+      lg: '1026px',
     },
     boxShadow: {
       ...defaultTheme.boxShadow,
-      'separator': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)',
+      separator:
+        '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)',
     },
     extend: {
       colors: {
-        'brown': colors.trueGray,
-        'coffee': {
+        brown: colors.trueGray,
+        coffee: {
           50: '#f8f7f6',
           100: '#f1f0ee',
           200: '#ddd9d4',
@@ -50,9 +52,9 @@ module.exports = {
       },
     },
     fontFamily: {
-      'sans': ['"Open Sans"', ...defaultTheme.fontFamily.sans],
-      'display': ['"Montserrat Alternates"', ...defaultTheme.fontFamily.sans],
-    }
+      sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+      display: ['"Montserrat Alternates"', ...defaultTheme.fontFamily.sans],
+    },
   },
   variants: {
     extend: {},
@@ -61,6 +63,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
   ],
 };

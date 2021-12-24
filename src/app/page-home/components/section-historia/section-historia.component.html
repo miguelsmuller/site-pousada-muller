@@ -1,0 +1,39 @@
+<section id="historia-da-pousada" class="container w-full mx-auto">
+  <div class="default-section-title">
+    <h1>História da Pousada</h1>
+    <h2>A verdadeira felicidade está entre as alegrias da família.</h2>
+  </div>
+
+  <div class="grid">
+    <div class="left">
+      <p class="pb-4 leading-relaxed">
+        Situada em uma das principais ruas de circulação de Rio Claro, a Pousada Müller é o mais antigo e conhecido
+        estabelecimento de hospedagem da região. Fundada com o formato de pensão em 0000 por Floriano e Jovelina Miller,
+        a gestão familiar segue por 4 gerações, sendo administrada atualmente por Miguel Müller Neto, à frente da
+        Pousada desde 2010.
+      </p>
+      <p class="pb-4 leading-relaxed">
+        Com mais de 70 anos de tradição as instalações mantiveram as características acolhedoras e adaptadas às
+        necessidades dos hóspedes, sempre buscando se modernizar para aliar conforto e tradição para quem busca Rio
+        Claro como destino.
+      </p>
+      <p class="pb-4 leading-relaxed">
+        A Pousada Müller oferece aos hóspedes uma área total de 510m², com 10 unidades habitacionais no formato de
+        hostel, com acomodações privativas. A pousada conta também com uma área de lazer com piscina e churrasqueira,
+        além de cozinha aberta aos hóspedes.
+      </p>
+      <p class="pb-4 leading-relaxed">
+        Buscando sempre oferecer um serviço de qualidade e uma estadia confortável, a família Müller recebe e saúda os
+        visitantes, desejando uma agradável experiência em Rio Claro e região e um breve retorno!
+      </p>
+    </div>
+
+    <div class="right">
+      <div *ngFor="let image of pictures" [ngClass]="image.styleContent">
+        <div class="default-image" [ngClass]="image.styleImage">
+          <img class="max-h-40 xl:max-h-52 2xl:max-h-64" src="{{ image.src }}" alt="{{ image.alt }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

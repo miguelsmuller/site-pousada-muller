@@ -1,0 +1,60 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "dist",
+    "coverage",
+    "tailwind.config.js"
+  ],
+  "parserOptions": {
+    "project": [
+      "tsconfig.json",
+      "e2e/tsconfig.json"
+    ],
+    "createDefaultProgram": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@angular-eslint/component-selector": [
+      "error",
+      {
+        "prefix": "app",
+        "style": "kebab-case",
+        "type": "element"
+      }
+    ],
+    "@angular-eslint/directive-selector": [
+      "error",
+      {
+        "prefix": "app",
+        "style": "camelCase",
+        "type": "attribute"
+      }
+    ],
+    "prettier/prettier": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
+      ]
+    },
+    {
+      "files": ["*.ts"],
+      "extends": [
+        //"plugin:@angular-eslint/template/process-inline-templates",
+      ]
+    }
+  ]
+}

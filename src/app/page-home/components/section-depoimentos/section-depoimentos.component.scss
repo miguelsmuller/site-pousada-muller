@@ -1,0 +1,12 @@
+:host{
+  display: block;
+  padding: 5rem 0;
+}
+
+:host ::ng-deep{
+  .swiper-button-prev,
+  .swiper-button-next
+  {
+    @apply text-heavy-metal-50;
+  }
+}

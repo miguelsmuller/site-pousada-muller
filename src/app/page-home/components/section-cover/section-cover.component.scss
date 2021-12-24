@@ -1,0 +1,21 @@
+:host{
+  display: block;
+  padding: 5rem 1.75rem;
+}
+
+.container-internal{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  align-items: center;
+
+  &>*{
+    @apply col-span-2 md:col-span-1;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container-internal{
+    grid-template-columns: 0.5fr 1fr;
+  }
+}

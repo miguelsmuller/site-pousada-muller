@@ -1,0 +1,65 @@
+<section id="rioclaro-rj">
+  <div class="default-section-title">
+    <h1>Conheça Rio Claro</h1>
+    <h2>Município que cuida da natureza</h2>
+  </div>
+
+  <div class="mesh">
+    <div class="mesh-col-video">
+      <div class="video default-image">
+        <img
+          src="https://res.cloudinary.com/miguelsmuller/image/upload/ar_16:9,c_crop,q_80,w_1208/v1621950719/pousada-muller-site/galeria-cidade/66863018_2133131400319927_8936128923360559104_o_rcufm9.WebP"
+          alt=""
+          class="max-h-[225px]"
+        />
+
+        <svg class="" width="103.603" height="103.603" viewBox="0 0 103.603 103.603" (click)="openVideo()">
+          <g fill="#57564f" stroke="#edeaea" stroke-width="12">
+            <circle cx="51.801" cy="51.801" r="51.801" stroke="none" />
+            <circle cx="51.801" cy="51.801" r="45.801" fill="none" />
+          </g>
+          <path
+            d="M39.825,20.176,6.794.648A4.479,4.479,0,0,0,0,4.524V43.571a4.5,4.5,0,0,0,6.794,3.876L39.825,27.927a4.5,4.5,0,0,0,0-7.751Z"
+            transform="translate(36.067 28.497)"
+            fill="#edeaea"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="mesh-col-content">
+      <p class="pb-4 leading-relaxed">
+        A bucólica Rio Claro fica ao sul do estado do Rio de Janeiro, no Vale do Paraíba, próxima ao litoral fluminense
+        da Costa Verde, rodeada de serras e cachoeiras, ganha o coração do visitante com seu charme e clima interiorano.
+        Com imensos vales cortados por rios límpidos, a região convida para a prática de rafting e esportes ao ar livre,
+        se refrescando nas cachoeiras ou para apreciar a calma e a beleza de sua flora e fauna locais, parte da Mata
+        Atlântica da região.
+      </p>
+
+      <p class="leading-relaxed">
+        Nas redondezas de Rio Claro (20km do centro da cidade, aprox. 20min de carro) é possível conhecer e explorar o
+        Parque Arqueológico e Ambiental de São João Marcos, um museu a céu aberto que conta a história do Vale do Café.
+        No Parque estão as ruínas do antigo município fluminense de São João Marcos que na década de 1940 foi evacuado
+        para dar lugar à represa de Ribeirão das Lages. Os visitantes podem ainda percorrer a trilha do Caminho Imperial
+        e conhecer o Centro de Memória, que apresenta a história da cidade.
+      </p>
+    </div>
+
+    <ng-container *ngFor="let image of pictures">
+      <div class="{{ image.style }} h-full">
+        <div class="default-image object-cover h-full">
+          <img src="{{ image.src }}" alt="{{ image.alt }}" class="max-h-80 h-full w-full" />
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>
+
+<div class="parallax default-image-filter">
+  <div
+    style="
+      height: 500px;
+      background-image: url('https://res.cloudinary.com/miguelsmuller/image/upload/v1621942160/pousada-muller-site/images/paralax_nsaok6.WebP');
+    "
+  ></div>
+</div>

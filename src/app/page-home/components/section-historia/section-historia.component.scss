@@ -1,0 +1,23 @@
+:host{
+  display: block;
+  padding: 5rem 1.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2.5rem; /* 40px */
+}
+
+@media (min-width: 1026px) {
+  .grid {
+    grid-template-columns: 1.25fr 1fr;
+  }
+
+}
+
+.right{
+  @apply grid grid-cols-2 justify-items-center items-center;
+}
+

@@ -1,20 +1,22 @@
 # **Pousada Müller Site**
-![Code quality](https://img.shields.io/scrutinizer/quality/g/miguelsmuller/pousada-muller-site/master?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/miguelsmuller/pousada-muller-site?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/miguelsmuller/pousada-muller-site?style=flat-square)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/miguelsmuller/pousada-muller-site/master?style=flat-square)
-
-## **VIEW DEMO**
-**[Previous demonstration ](https://miguelsmuller.github.io/pousada-muller-site/)**- Some demo pages for the result to be seen
+![Code quality](https://img.shields.io/scrutinizer/quality/g/miguelsmuller/site-pousada-muller/master?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/miguelsmuller/site-pousada-muller?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/miguelsmuller/site-pousada-muller?style=flat-square)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/miguelsmuller/site-pousada-muller/master?style=flat-square)
 
 ## **OVERVIEW**
+- **Version:** 2.0 
+- **License:** Proprietary - Private Use - All rights reserved. 
+- **Available for consultation and study only**
+
 Website developed for commercial purposes for Pousada Müller located in Rio Claro in the State of Rio Janeiro. The company that underwent a rebranding had the previous site done in [**WordPress**](https://wordpress.org/) and now has the new version being developed in **[Angular](https://angular.io/)**. Information about this [**older version**](#older-version) can be found in the topic below. 
 
 **Angular** which is an application design framework and development platform for creating efficient and sophisticated single-page apps. It is for building the application interface using HTML, CSS and, mainly, JavaScript, created by Google's developers and has some basic elements that make this construction interesting, within them we can highlight the components, templates, directives, routing, modules, services, dependency injection and infrastructure tools that automate tasks, such as executing the unit tests of an application. 
 
-- **Version:** 2.0 
-- **License:** Proprietary - Private Use - All rights reserved. 
-- **Available for consultation and study only**
+
+| [Versão de 2013](http://www.devim.com.br) | [Versão de 2022](https://miguelsmuller.github.io/site-pousada-muller/) |
+|:-----------------------------------------:|:----------------------------------------------------------------------:|
+
 
 ## **DOC CONTENT** 
 * [Project Requirements](#project-requirements)
@@ -61,7 +63,7 @@ The branch **`develop`** is the branch that runs in the test environment. It sto
 
 ## **CONTRIBUTING**  
 #### **REPORTING PROBLEMS**  
-To report an issue, please [create a new pull request](https://github.com/miguelsmuller/pousada-muller-site/pulls).  
+To report an issue, please [create a new pull request](https://github.com/miguelsmuller/site-pousada-muller/pulls).  
 
 #### **SENDING CODE**  
 Before sending your collaboration, check your code and the conventions adopted in the project and take the following steps:
@@ -88,7 +90,7 @@ Provisionally while the site is not in production the depoly will be done on git
   - A folder will be created in the same directory as the current project 
 - Access the created folder **`$ cd ./www`**
 - Init git with: **`$ git init`**
-- Add a origin with: **`$ git remote add origin git@github.com:miguelsmuller/pousada-muller-site.git`**
+- Add a origin with: **`$ git remote add origin git@github.com:miguelsmuller/site-pousada-muller.git`**
 - Create a branch gh-pages with: **`$ git checkout -b gh-pages`**
 - Add, Commit and Push with:
   - **`$ git add --all`**
@@ -99,13 +101,9 @@ Provisionally while the site is not in production the depoly will be done on git
 <br>
 
 ##  **OLDER VERSION**  
-The old version of this site can be found for study at the branch **[WordPress Old Version](https://github.com/miguelsmuller/pousada-muller-site/tree/wordpress-old-version)**. No changes are made to that branch. It is in the history for reference only. 
+The old version of this site can be found for study at the GitHub repository **[Site Hotel Muller](https://github.com/miguelsmuller/site-hotel-muller)**. The repository is archived for historical reference only.
 
 <br>
 
-## **CHANGELOG**  
-= **2.0.0 - 14/11/2020** =  
-New Version - 2020
-
-= **1.0.0 - 26/09/2013** =  
-First version - 2013
+## **SCREENSHOT**
+![Home](design/screenshot.jpeg "Title")

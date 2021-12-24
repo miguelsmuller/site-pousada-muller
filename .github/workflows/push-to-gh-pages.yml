@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: www
-          path: dist/pousada-muller-site
+          path: dist/site-pousada-muller
 
   run-deploy:
     runs-on: ubuntu-latest

@@ -1,0 +1,22 @@
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  @apply bg-transparent;
+}
+
+
+:host ::ng-deep{
+  .mat-horizontal-stepper-header-container{
+    @apply p-1;
+  }
+
+  .mat-step-header{
+    @apply rounded-md;
+  }
+
+  .mat-date-range-input-container{
+    @apply text-base font-normal;
+    input{
+      outline: none !important;
+    }
+  }
+}

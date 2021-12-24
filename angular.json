@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pousada-muller-site": {
+    "site-pousada-muller": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pousada-muller-site",
+            "outputPath": "dist/site-pousada-muller",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,21 +74,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pousada-muller-site:build"
+            "browserTarget": "site-pousada-muller:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pousada-muller-site:build:production"
+              "browserTarget": "site-pousada-muller:build:production"
             },
             "local": {
-              "browserTarget": "pousada-muller-site:build:local"
+              "browserTarget": "site-pousada-muller:build:local"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pousada-muller-site:build"
+            "browserTarget": "site-pousada-muller:build"
           }
         },
         "test": {
@@ -122,18 +122,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pousada-muller-site:serve"
+            "devServerTarget": "site-pousada-muller:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pousada-muller-site:serve:production"
+              "devServerTarget": "site-pousada-muller:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "pousada-muller-site",
+  "defaultProject": "site-pousada-muller",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }

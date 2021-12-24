@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "@app/*": ["./src/app/*"],
+      "@core/*": ["./src/app/core/*"],
       "@env/*": ["./src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
@@ -20,5 +21,8 @@
       "es2018",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   }
 }

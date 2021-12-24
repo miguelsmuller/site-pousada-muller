@@ -1,0 +1,38 @@
+:host{
+  display: block;
+}
+
+section{
+  @apply container w-full mx-auto py-20 px-7;
+}
+
+.mesh{
+  @apply grid grid-cols-5 items-stretch gap-4 lg:gap-9;
+
+  .mesh-col-video{
+    @apply col-span-5 lg:col-span-2;
+  }
+  .mesh-col-content{
+    @apply col-span-5 lg:col-span-3 flex flex-col justify-evenly;
+  }
+}
+
+.video{
+  @apply  object-cover relative;
+
+  img{
+    @apply w-full;
+  }
+  svg{
+    @apply absolute inset-1/2;
+    @apply transform -translate-x-1/2 -translate-y-1/2;
+
+  }
+}
+
+.parallax{
+  @apply my-20 shadow-separator ;
+  &>div{
+    @apply bg-fixed bg-center bg-no-repeat bg-cover;
+  }
+}

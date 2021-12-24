@@ -3,10 +3,36 @@
   "editor.wordWrap": "bounded",
   "editor.minimap.enabled": false,
 
-  //"editor.codeActionsOnSave": { "source.fixAll.tslint": true },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
 
-  // "files.autoSave": "afterDelay",
-  // "files.autoSaveDelay": 3000,
+  //"editor.codeActionsOnSave": { "source.fixAll.tslint": true },
 
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
@@ -28,4 +54,5 @@
     "package-lock.json": true,
     "www": true
   },
+  "angular.enable-strict-mode-prompt": false,
 }

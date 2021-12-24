@@ -1,52 +1,8 @@
-@import 'theme/fonts';
-@import 'theme/tailwind';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import 'theme/angular';
+@import 'theme/global';
 
-@import "~swiper/swiper";
-@import "~swiper/components/navigation/navigation";
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* # Dialog Utilities
-================================================== */
-.cdk-overlay-backdrop{
-  @apply bg-opacity-60 bg-clip-padding backdrop-filter backdrop-blur-sm bg-heavy-metal-600;
-}
-
-.mat-dialog{
-  .mat-dialog-container{
-    @apply p-0 overflow-hidden bg-heavy-metal-100;
-  }
-  .mat-dialog-title{
-    @apply text-xl p-4 m-0 bg-heavy-metal-700 text-heavy-metal-50 font-display font-semibold;
-  }
-  .mat-dialog-content{
-    /* max-w-3xl p-6 pb-3 m-0; */
-    @apply max-w-3xl m-0 p-0;
-  }
-  .mat-dialog-actions{
-    @apply p-6 pb-3 md:pb-6 pt-3 m-0 flex justify-center md:justify-start border-b-8 border-heavy-metal-700;
-  }
-}
-
-/* # Input Placeholder
-================================================== */
-::-webkit-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-::-moz-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-:-ms-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-:-moz-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
+@import '~swiper/swiper';
+@import '~swiper/components/navigation/navigation';

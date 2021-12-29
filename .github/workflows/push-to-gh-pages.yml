@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - 'feature-**'
 
 jobs:
   run-build:
@@ -21,7 +22,11 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build:prod
+        run: npm run build:prod:ghpages
+        env:
+          EMAIL_API_FROM: ${{ secrets.EMAIL_API_FROM }}
+          EMAIL_API_KEY: ${{ secrets.EMAIL_API_KEY }}
+          EMAIL_API_URL: ${{ secrets.EMAIL_API_URL }}
 
       - name: Upload build
         if: success()
@@ -49,4 +54,6 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
         env:
-          EMAILAPIKEY: ${{ secrets.EMAILAPIKEY }}
+          EMAIL_API_FROM: ${{ secrets.EMAIL_API_FROM }}
+          EMAIL_API_KEY: ${{ secrets.EMAIL_API_KEY }}
+          EMAIL_API_URL: ${{ secrets.EMAIL_API_URL }}

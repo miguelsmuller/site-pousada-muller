@@ -3,14 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration=local",
-    "build": "ng build --build-optimizer --vendor-chunk --source-map=false",
-    "build:local": "ng build --aot --prod --build-optimizer --vendor-chunk --source-map=false",
-    "build:prod": "ng build --aot --prod --build-optimizer --vendor-chunk --source-map=false --deploy-url=https://miguelsmuller.github.io/site-pousada-muller/ --base-href=/site-pousada-muller/",
+    "start": "ng serve",
+    "build": "ng build",
+    "build:prod:local": "npm run process-env && ng build --configuration=local",
+    "build:prod:ghpages": "npm run process-env && ng build --configuration=ghpages",
+    "process-env": "ts-node ./env.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install"
+  },
+  "scriptsComments": {
+    "build": "EXPANDED and environment.ts",
+    "build:prod:local": "EXPANDED, source.map and .env",
+    "build:prod:ghpages": "COMPRESS and .env"
   },
   "private": true,
   "dependencies": {
@@ -68,6 +74,8 @@
     "protractor": "~7.0.0",
     "tailwindcss": "~2.1.2",
     "ts-node": "~8.3.0",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
     "typescript": "~4.1.5"
   }
 }

@@ -47,5 +47,6 @@ Thumbs.db
 
 # Environments and Firebase Files
 # /src/firebase-messaging-sw.js
-/src/environments/*.ts
+.env
+/src/environments/**
 !/src/environments/environment.ts

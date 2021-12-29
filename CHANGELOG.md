@@ -1,5 +1,8 @@
 # **CHANGELOG**  
   
+= **0.1.0 - 27/12/2021** =  
+- feature - use env variables in build
+
 = **0.0.16 - 27/12/2021** =  
 - add workflow
 

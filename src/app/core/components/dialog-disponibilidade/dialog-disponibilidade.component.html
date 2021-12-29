@@ -33,13 +33,7 @@
 
     <mat-step [stepControl]="formReservationGroup" [completed]="false" label="Formulário">
       <form [formGroup]="formReservationGroup">
-        <input
-          id="input_form_type"
-          name="input_form_type"
-          formControlName="input_form_type"
-          type="hidden"
-          value="form_type_reservation"
-        />
+        <input id="input_form_type" name="input_form_type" formControlName="input_form_type" type="hidden" />
         <div class="grid grid-cols-5 gap-4">
           <div class="col-span-5">
             <label for="input_reservation_name">Nome Completo:</label>

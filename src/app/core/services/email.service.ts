@@ -48,12 +48,14 @@ export class EmailService {
   public senfForm(data: FormGroup): Observable<unknown> {
     let actions = {};
 
-    if (data.value.input_reservation_mail === 'form_type_reservation') {
+    console.log(data.value);
+
+    if (data.value.input_form_type === 'form_type_reservation') {
       actions = {
         emailReservationClient: this.sendReservationClient(data),
         emailReservationPousada: this.sendReservationPousada(data),
       };
-    } else if (data.value.input_reservation_mail === 'form_type_contact') {
+    } else if (data.value.input_form_type === 'form_type_contact') {
       actions = {
         emailReservationClient: this.sendContactClient(data),
         emailReservationPousada: this.sendContactPousada(data),

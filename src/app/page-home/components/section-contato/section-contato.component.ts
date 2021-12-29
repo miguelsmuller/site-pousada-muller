@@ -23,7 +23,7 @@ export class SectionContatoComponent implements OnInit {
       input_contact_tipo: ['', Validators.required],
       input_contact_assunto: ['', Validators.required],
       input_contact_mensagem: ['', Validators.required],
-      input_form_type: [],
+      input_form_type: ['form_type_contact'],
     });
   }
 

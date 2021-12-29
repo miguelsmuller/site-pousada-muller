@@ -49,10 +49,11 @@
   "files.exclude": {
     ".firebase": true,
     "**/node_modules": true,
-    //"**/.vscode": true,
-    //"dist": true,
+    "**/.vscode": true,
+    "dist": true,
     "package-lock.json": true,
-    //"www": true
+    "www": true,
+    ".github": true
   },
   "angular.enable-strict-mode-prompt": false,
 }

@@ -42,7 +42,7 @@ export class DialogDisponibilidadeComponent implements OnInit {
       input_reservation_qunits: ['', Validators.required],
       input_reservation_qpeoples: ['', Validators.required],
       input_reservation_qchildren: ['', Validators.required],
-      input_form_type: [],
+      input_form_type: ['form_type_reservation'],
     });
   }
 

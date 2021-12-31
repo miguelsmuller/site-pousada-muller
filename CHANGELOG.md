@@ -1,13 +1,22 @@
 # **CHANGELOG**  
   
+= **1.0.1 - 31/12/2021** =  
+- Fine adjustments to master
+
 = **1.0.0 - 30/12/2021** =  
 - change host live to firebase
+
+= **0.1.1 - 29/12/2021** =  
+- fix - form send - mailgun integration
 
 = **0.1.0 - 29/12/2021** =  
 - feature - use env variables in build
 
-= **0.0.16 - 27/12/2021** =  
+= **0.0.17 - 27/12/2021** =  
 - add workflow
+
+= **0.0.16 - 27/12/2021** =  
+- fiz deploy
 
 = **0.0.15 - 27/12/2021** =  
 - update angular to v11

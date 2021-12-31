@@ -5,15 +5,21 @@
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/miguelsmuller/site-pousada-muller/master?style=flat-square)
 
 ## **Overview**
-Website developed for commercial purposes for Pousada Müller located in Rio Claro in the State of Rio Janeiro. The company that underwent a rebranding had the previous site done in [**WordPress**](https://wordpress.org/) and now has the new version being developed in **[Angular](https://angular.io/)**. Information about this [**older version**](#older-version) can be found in the topic below. 
+Website developed for commercial purposes for Pousada Müller located in Rio Claro in the State of Rio Janeiro. The company that underwent a rebranding had the previous site done in [**WordPress**](https://wordpress.org/) and now has the new version being developed in **[Angular](https://angular.io/)**.
 
-- Feature 1
-- Feature 2
-- Feature 3
-- [Need to be listed]
+- Contact Form
+- Availability Form
+- Mailgun service API integration
+- Notification of use of cookies
 
-| [Repo V2013](https://github.com/miguelsmuller/site-hotel-muller) | [Demo v2022](https://pousada-muller.web.app/) |
-|:----------------------------------------------------------------:|:---------------------------------------------:|
+
+|[See Demonstration](https://pousada-muller.web.app/) |
+|:---------------------------------------------------:|
+
+<br/>
+
+## **Older Version**
+The old version of this site can be found for study at the [Old Version Repo](https://github.com/miguelsmuller/site-hotel-muller). No changes are made to that repo. It is for reference only.
 
 <br/>
   
@@ -21,14 +27,20 @@ Website developed for commercial purposes for Pousada Müller located in Rio Cla
 Make sure that you also have **[NodeJS](https://nodejs.org/)** and **[NPM](https://www.npmjs.com/)** installed on your computer.
 - `$ node --version` and `$ npm --version`
 
-Also make sure you have **Angular CLI** and **Firebase CLI** installed globally on your machine.  
-- `$ npm install -g @angular/cli firebase-tools`
+<br/>
 
-Install dependencies of project with:  
+**Install dependencies** of project with:  
 - `$ npm install`
 
-#### **First run - Environment files**  
-In the first execution of the project, it is **essential** to create the environment files (`environment.ts` and `environment.prod.ts`) in _**/src/environments**_ according to the model that follows inside the folder (`environment.example.ts`).
+<br/>
+
+**Angular Cli** is already part of the development dependencies, so any cli functionality can be used with the prefix npx.
+
+- `$ npx ng serve`
+
+<br/>
+
+**First Execution - Environment files**: In the first execution of the project, it is **essential** to create the environment files (_environment.ts_) in _/src/environments_ according to the model that follows inside the folder (_environment.exp.ts_).
 
 <br/>
 
@@ -79,4 +91,4 @@ src/                         project source code
 <br>
 
 ## **Screenshot**
-![Home](design/screenshot.png "Title")
+![Home](design/screenshot.jpeg "Title")

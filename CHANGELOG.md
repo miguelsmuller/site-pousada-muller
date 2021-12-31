@@ -1,5 +1,8 @@
 # **CHANGELOG**  
   
+= **1.0.2 - 31/12/2021** =  
+- fix deploy to master
+
 = **1.0.1 - 31/12/2021** =  
 - Fine adjustments to master
 

@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod:local": "npm run process-env && ng build --configuration=local",
-    "build:prod:ghpages": "npm run process-env && ng build --configuration=ghpages",
+    "build:prod:live": "npm run process-env && ng build --configuration=live",
     "process-env": "ts-node ./env.ts",
     "test": "ng test",
     "lint": "ng lint",
@@ -16,7 +16,7 @@
   "scriptsComments": {
     "build": "EXPANDED and environment.ts",
     "build:prod:local": "EXPANDED, source.map and .env",
-    "build:prod:ghpages": "COMPRESS and .env"
+    "build:prod:live": "COMPRESS and .env"
   },
   "private": true,
   "dependencies": {

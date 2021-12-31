@@ -1,4 +1,4 @@
-# **Site - Secretaria de Educação de Rio Claro**
+# **Site - Pousada Müller**
 ![Code quality](https://img.shields.io/scrutinizer/quality/g/miguelsmuller/site-pousada-muller/master?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/miguelsmuller/site-pousada-muller?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/miguelsmuller/site-pousada-muller?style=flat-square)
@@ -12,8 +12,8 @@ Website developed for commercial purposes for Pousada Müller located in Rio Cla
 - Feature 3
 - [Need to be listed]
 
-| [Repo V2013](https://github.com/miguelsmuller/site-hotel-muller) | [Demo v2022](https://miguelsmuller.github.io/site-pousada-muller/) |
-|:----------------------------------------------------------------:|:------------------------------------------------------------------:|
+| [Repo V2013](https://github.com/miguelsmuller/site-hotel-muller) | [Demo v2022](https://pousada-muller.web.app/) |
+|:----------------------------------------------------------------:|:---------------------------------------------:|
 
 <br/>
   

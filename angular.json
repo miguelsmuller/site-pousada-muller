@@ -49,13 +49,11 @@
                 }
               ]
             },
-            "ghpages": {
+            "live": {
               "buildOptimizer": true,
               "vendorChunk": false,
               "sourceMap": false,
               "aot": true,
-              "deployUrl": "https://miguelsmuller.github.io/site-pousada-muller/",
-              "baseHref": "/site-pousada-muller/",
               "optimization": true,
               "outputHashing": "all",
               "namedChunks": false,

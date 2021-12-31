@@ -1,6 +1,9 @@
 # **CHANGELOG**  
   
-= **0.1.0 - 27/12/2021** =  
+= **1.0.0 - 30/12/2021** =  
+- change host live to firebase
+
+= **0.1.0 - 29/12/2021** =  
 - feature - use env variables in build
 
 = **0.0.16 - 27/12/2021** =  

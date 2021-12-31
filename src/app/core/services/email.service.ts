@@ -48,8 +48,6 @@ export class EmailService {
   public senfForm(data: FormGroup): Observable<unknown> {
     let actions = {};
 
-    console.log(data.value);
-
     if (data.value.input_form_type === 'form_type_reservation') {
       actions = {
         emailReservationClient: this.sendReservationClient(data),
@@ -74,23 +72,29 @@ export class EmailService {
   private sendEmail(data: IEMailContent): Observable<unknown> {
     this.emailInSending = true;
 
-    const httpUrl = `${this.emailApi.emailApiUrl}/messages`;
-    const httpHeader = new HttpHeaders().append('Authorization', 'Basic ' + btoa(this.emailApi.emailApiKey));
+    const emailApiURL = `${this.emailApi.emailApiUrl}/messages`;
+    const emailApiKey = `Basic ${btoa('api:' + this.emailApi.emailApiKey)}`;
+
+    const httpHeader = new HttpHeaders().set('Authorization', emailApiKey);
 
     const httpBody = new FormData();
-    httpBody.set('from', `${data.fromName}<${data.fromEmail}>`);
-    httpBody.set('to', `${data.toName}<${data.toEmail}>`);
+    httpBody.set('from', `${data.fromName} <${data.fromEmail}>`);
+    httpBody.set('to', `${data.toName} <${data.toEmail}>`);
     httpBody.set('subject', data.subejct);
     httpBody.set('h:Reply-To', data.replyTo);
     httpBody.set('html', data.content);
 
-    return this.serviceRequest.post<unknown>(httpUrl, httpBody, { headers: httpHeader }).pipe(retry(2));
+    /* httpBody.forEach((value, key, parent) => {
+      console.log(`${parent} => ${key} : ${value}`);
+    }); */
+
+    return this.serviceRequest.post<unknown>(emailApiURL, httpBody, { headers: httpHeader }).pipe(retry(2));
   }
 
   private sendReservationClient(data: FormGroup): Observable<unknown> {
     let clientEmailData: IEMailContent = {
       fromName: 'Pousada Müller',
-      fromEmail: 'contato@hotelmulller.com.br',
+      fromEmail: this.emailApi.emailApiFrom,
       replyTo: data.value.input_reservation_mail,
       toName: data.value.input_reservation_name,
       toEmail: data.value.input_reservation_mail,
@@ -101,7 +105,7 @@ export class EmailService {
     const htmlEmailClient = `<p>Olá <span style="font-weight:bold">${clientEmailData.toName}</span></p>
     <p>Obrigado por entrar em contato conosco! </p>
     <p><span style="font-weight:bold">Não é necessário responder esse email</span>. Nós iremos verificar a disponibilidade de unidades para o período informado e entraremos em contato o quanto antes.</p>
-    <p>Você já conhece a nossa <a href="http://www.facebook.com.br/hotelmuller" target="_blank">fã page no facebook</a> ou nosso <a href="https://plus.google.com/+HotelMüllerRioClaro" target="_blank">perfil no google+</a> ? Curtá lá e fique sabendo na hora das novidades, das promoções e dos pacotes para os feriados.</p>
+    <p>Você já conhece a nossa <a href="http://www.facebook.com.br/hotelmuller" target="_blank">página no facebook</a>? Curtá lá e fique sabendo na hora das novidades, das promoções e dos pacotes para os feriados.</p>
     <p>Atenciosamente,<br>Hotel Müller</p>
     <br>
     <p><a href="https://www.hotelmuller.com.br" target="_blank">https://www.hotelmuller.com.br</a><br>
@@ -118,7 +122,7 @@ export class EmailService {
       fromEmail: data.value.input_reservation_mail,
       replyTo: data.value.input_reservation_mail,
       toName: 'Pousada Müller',
-      toEmail: 'contato@hotelmuller.com.br',
+      toEmail: this.emailApi.emailApiFrom,
       subejct: `Site - Reserva - ${data.value.input_reservation_name}`,
       content: '',
     };
@@ -139,7 +143,7 @@ export class EmailService {
   private sendContactClient(data: FormGroup): Observable<unknown> {
     let clientEmailData: IEMailContent = {
       fromName: 'Pousada Müller',
-      fromEmail: 'contato@hotelmulller.com.br',
+      fromEmail: this.emailApi.emailApiFrom,
       replyTo: data.value.input_reservation_mail,
       toName: data.value.input_reservation_name,
       toEmail: data.value.input_reservation_mail,
@@ -150,7 +154,7 @@ export class EmailService {
     const htmlEmailClient = `<p>Olá <span style="font-weight:bold">${clientEmailData.toName}</span></p>
     <p>Obrigado por entrar em contato conosco! </p>
     <p><span style="font-weight:bold">Não é necessário responder esse email</span>. Nós iremos verificar a disponibilidade de unidades para o período informado e entraremos em contato o quanto antes.</p>
-    <p>Você já conhece a nossa <a href="http://www.facebook.com.br/hotelmuller" target="_blank">fã page no facebook</a> ou nosso <a href="https://plus.google.com/+HotelMüllerRioClaro" target="_blank">perfil no google+</a> ? Curtá lá e fique sabendo na hora das novidades, das promoções e dos pacotes para os feriados.</p>
+    <p>Você já conhece a nossa <a href="http://www.facebook.com.br/hotelmuller" target="_blank">página no facebook</a>? Curtá lá e fique sabendo na hora das novidades, das promoções e dos pacotes para os feriados.</p>
     <p>Atenciosamente,<br>Hotel Müller</p>
     <br>
     <p><a href="https://www.hotelmuller.com.br" target="_blank">https://www.hotelmuller.com.br</a><br>
@@ -167,7 +171,7 @@ export class EmailService {
       fromEmail: data.value.input_reservation_mail,
       replyTo: data.value.input_reservation_mail,
       toName: 'Pousada Müller',
-      toEmail: 'contato@hotelmuller.com.br',
+      toEmail: this.emailApi.emailApiFrom,
       subejct: `Site - Reserva - ${data.value.input_reservation_name}`,
       content: '',
     };

@@ -7,36 +7,51 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const targetLocal = './src/environments/environment.ts';
-const targetProd = './src/environments/environment.prod.ts';
-const targetExep = './src/environments/environment.exp.ts';
-
-const file = fs.readFileSync(targetExep, 'utf8');
-
-const regEx = /(\w+)\s?\:\s?(?:\w+|'.*'),?/gm;
-const envConfigFile = file.replace(regEx, (_match: string, attr: string) => {
-  const envVar = attr
-    .split(/(?=[A-Z])/)
-    .join('_')
-    .toUpperCase();
-
-  const rtn = `${attr}: '${process.env[envVar]}',`;
-  return rtn;
-});
-
-if (!fs.existsSync(targetLocal)) {
-  writeFileUsingFS(targetLocal, envConfigFile);
+// CREATE ENV FILE
+const contentFile = getFileContentWithModification('./src/environments/environment.exp.ts');
+const envLocalFile = './src/environments/environment.ts';
+if (!fs.existsSync(envLocalFile)) {
+  writeFileUsingFS(envLocalFile, contentFile);
 }
+const envProdFile = './src/environments/environment.prod.ts';
+writeFileUsingFS(envProdFile, contentFile);
 
-writeFileUsingFS(targetProd, envConfigFile);
-
-function writeFileUsingFS(targetPath, environmentFileContent) {
-  fs.writeFile(targetPath, environmentFileContent, function (err) {
+function writeFileUsingFS(targetPath: string, environmentFileContent: string) {
+  fs.writeFile(targetPath, environmentFileContent, function (err: any) {
     if (err) {
       console.log(err);
     }
     if (environmentFileContent !== '') {
-      console.log(colors.magenta(`Environment file generated correctly at ${targetPath}`));
+      console.log(colors.magenta(`${targetPath} file generated correctly`));
     }
   });
+}
+
+function getFileContentWithModification(modelo: string) {
+  const regEx = /(\w+)\s?\:\s?(:\w+|'.*'),?/gm;
+  const file = fs.readFileSync(modelo, 'utf8');
+
+  const envConfigFile = file.replace(regEx, (_match: string, attr: string, vle: string) => {
+    // TRANSFORM ATTR IN SNAKE CASE
+    const envVar = attr
+      .split(/(?=[A-Z])/)
+      .join('_')
+      .toUpperCase();
+
+    // FORMAT VALUE
+    const attrName = attr;
+
+    let attrValue: string | undefined = '';
+    if (attr === 'databaseURL') {
+      attrValue = process.env.DATABASE_URL;
+    } else {
+      attrValue = process.env[envVar];
+    }
+    if (vle) {
+      vle = `'${vle}'`;
+    }
+
+    return `${attrName}: '${attrValue}',`;
+  });
+  return envConfigFile;
 }

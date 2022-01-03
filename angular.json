@@ -143,6 +143,6 @@
   },
   "defaultProject": "site-pousada-muller",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@ngrx/schematics"
   }
 }

@@ -32,6 +32,8 @@
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
     "@angular/youtube-player": "~11.2.13",
+    "@ngrx/store": "^11.1.1",
+    "@ngrx/store-devtools": "^11.1.1",
     "moment": "~2.29.1",
     "ngx-cookie-service": "~11.0.2",
     "ngx-mask": "~11.1.5",
@@ -49,6 +51,7 @@
     "@angular/cli": "~11.2.17",
     "@angular/compiler-cli": "~11.2.14",
     "@ngneat/tailwind": "~7.0.3",
+    "@ngrx/schematics": "^11.1.1",
     "@tailwindcss/aspect-ratio": "~0.2.0",
     "@tailwindcss/forms": "~0.3.2",
     "@tailwindcss/line-clamp": "~0.2.0",
@@ -59,6 +62,8 @@
     "@typescript-eslint/eslint-plugin": "~4.16.1",
     "@typescript-eslint/parser": "~4.16.1",
     "autoprefixer": "~10.2.5",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
     "eslint": "~7.6.0",
     "eslint-config-prettier": "~8.3.0",
     "eslint-plugin-prettier": "~3.4.0",
@@ -74,8 +79,6 @@
     "protractor": "~7.0.0",
     "tailwindcss": "~2.1.2",
     "ts-node": "~8.3.0",
-    "colors": "^1.4.0",
-    "dotenv": "^10.0.0",
     "typescript": "~4.1.5"
   }
 }

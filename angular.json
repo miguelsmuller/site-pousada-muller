@@ -38,7 +38,7 @@
             "namedChunks": true
           },
           "configurations": {
-            "local": {
+            "development": {
               "sourceMap": false,
               "fileReplacements": [
                 {
@@ -47,7 +47,7 @@
                 }
               ]
             },
-            "live": {
+            "production": {
               "vendorChunk": false,
               "sourceMap": false,
               "optimization": true,
@@ -85,8 +85,8 @@
             "production": {
               "browserTarget": "site-pousada-muller:build:production"
             },
-            "local": {
-              "browserTarget": "site-pousada-muller:build:local"
+            "development": {
+              "browserTarget": "site-pousada-muller:build:development"
             }
           }
         },
@@ -146,7 +146,7 @@
             "extractLicenses": false
           },
           "configurations": {
-            "local": {
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -155,7 +155,7 @@
               ],
               "sourceMap": false
             },
-            "live": {
+            "production": {
               "outputHashing": "media",
               "fileReplacements": [
                 {

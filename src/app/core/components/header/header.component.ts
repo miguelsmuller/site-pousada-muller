@@ -38,9 +38,6 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   constructor(private _emailService: EmailService) {}
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
 
   ngAfterViewInit(): void {
     const scroll$ = fromEvent(window, 'scroll').pipe(
@@ -59,7 +56,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     scrollDown.subscribe(() => (this.isVisible = false));
   }
 
-  ngOnDestry(): void {
+  ngOnDestroy(): void {
     this.unSubscribeAllObservables$.next();
   }
 

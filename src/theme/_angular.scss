@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-@include mat-core();
+@use '~@angular/material' as mat;
+@include mat.core();
 
 /* # Angular Defaults
 ================================================== */
@@ -44,10 +44,10 @@ $gray-palette: (
  )
 );
 
-$app-primary: mat-palette($elephant-palette, 500, 200);
-$app-accent:  mat-palette($gray-palette, 500);
-$app-theme: mat-light-theme($app-primary, $app-accent);
-@include angular-material-theme($app-theme);
+$app-primary: mat.define-palette($elephant-palette, 500, 200);
+$app-accent:  mat.define-palette($gray-palette, 500);
+$app-theme: mat.define-light-theme($app-primary, $app-accent);
+@include mat.all-component-themes($app-theme);
 
 
 /* # Dialog Utilities

@@ -1,0 +1,44 @@
+<header class="container w-full mx-auto">
+  <div class="flex flex-col md:flex-row items-start sm:items-center justify-between">
+    <div class="w-full flex items-center justify-between md:justify-start md:w-auto">
+      <a href="/">
+        <app-logo [routerLink]="['/']"></app-logo>
+      </a>
+
+      <button type="button" (click)="toggleMenu()" class="toggleMenu">
+        <svg
+          [ngClass]="{ block: !menuShow, hidden: menuShow }"
+          class="transition-all duration-500 block h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <svg
+          [ngClass]="{ hidden: !menuShow, block: menuShow }"
+          class="transition-all duration-500 hidden h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav [ngClass]="{ hidden: !menuShow, flex: menuShow }">
+      <ul>
+        <li><a [routerLink]="['/']" fragment="historia-da-pousada">Pousada</a></li>
+        <li><a [routerLink]="['/']" fragment="nossas-acomodacoes">Acomodações</a></li>
+        <li><a [routerLink]="['/']" fragment="rioclaro-rj">Rio Claro</a></li>
+        <li><a [routerLink]="['/']" fragment="novidades">Notícias</a></li>
+        <li><a [routerLink]="['/']" fragment="fale-conosco">Fale Conosco</a></li>
+        <li><a (click)="openReservationDialog()">Reservas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

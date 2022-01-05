@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/site-pousada-muller",
+            "outputPath": "dist/site-pousada-muller/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -134,6 +134,74 @@
               "devServerTarget": "site-pousada-muller:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/site-pousada-muller/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "optimization": false,
+            "sourceMap": true,
+            "extractLicenses": false
+          },
+          "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false
+            },
+            "live": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "site-pousada-muller:build:development",
+              "serverTarget": "site-pousada-muller:server:development"
+            },
+            "production": {
+              "browserTarget": "site-pousada-muller:build:production",
+              "serverTarget": "site-pousada-muller:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "site-pousada-muller:build:production",
+              "serverTarget": "site-pousada-muller:server:production"
+            },
+            "development": {
+              "browserTarget": "site-pousada-muller:build:development",
+              "serverTarget": "site-pousada-muller:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

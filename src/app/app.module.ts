@@ -17,18 +17,15 @@ import { environment } from '../environments/environment';
 @NgModule({
   imports: [
     HttpClientModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     LayoutModule,
-    RouterModule.forRoot(
-      [
-        {
-          path: '',
-          loadChildren: () => import('./page-home/page-home.module').then((m) => m.PageHomeModule),
-        },
-      ],
-      { relativeLinkResolution: 'legacy', anchorScrolling: 'enabled' }
-    ),
+    RouterModule.forRoot([
+    {
+        path: '',
+        loadChildren: () => import('./page-home/page-home.module').then((m) => m.PageHomeModule),
+    },
+], { relativeLinkResolution: 'legacy', anchorScrolling: 'enabled', initialNavigation: 'enabledBlocking' }),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],

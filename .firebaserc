@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "pousada-muller"
+  },
+  "targets": {
+    "pousada-muller": {
+      "hosting": {
+        "site-pousada-muller": [
+          "pousada-muller"
+        ]
+      }
+    }
   }
 }

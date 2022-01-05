@@ -202,6 +202,22 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "ssr": "cloud-functions",
+            "prerender": true,
+            "firebaseProject": "pousada-muller",
+            "firebaseHostingSite": "pousada-muller",
+            "functionName": "ssr_site-pousada-muller",
+            "functionsNodeVersion": "14",
+            "region": "us-central1",
+            "browserTarget": "site-pousada-muller:build:production",
+            "serverTarget": "site-pousada-muller:server:production",
+            "prerenderTarget": "site-pousada-muller:prerender:production",
+            "outputPath": "dist/site-pousada-muller/functions"
+          }
         }
       }
     }

@@ -49,5 +49,11 @@ Thumbs.db
 # Environments and Firebase Files
 # /src/firebase-messaging-sw.js
 .env
+
 /src/environments/**
 !/src/environments/environment.exp.ts
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

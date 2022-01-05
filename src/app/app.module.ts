@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { reducers } from './reducers';
 
 import { environment } from '../environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideFunctions, getFunctions } from '@angular/fire/functions';
+import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 
 @NgModule({
   imports: [
@@ -20,14 +23,20 @@ import { environment } from '../environments/environment';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     LayoutModule,
-    RouterModule.forRoot([
-    {
-        path: '',
-        loadChildren: () => import('./page-home/page-home.module').then((m) => m.PageHomeModule),
-    },
-], { relativeLinkResolution: 'legacy', anchorScrolling: 'enabled', initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          loadChildren: () => import('./page-home/page-home.module').then((m) => m.PageHomeModule),
+        },
+      ],
+      { relativeLinkResolution: 'legacy', anchorScrolling: 'enabled', initialNavigation: 'enabledBlocking' }
+    ),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

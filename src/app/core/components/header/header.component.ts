@@ -60,7 +60,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestry(): void {
-    this.unSubscribeAllObservables$.next();
+    this.unSubscribeAllObservables$.next('');
   }
 
   toggleMenu(): void {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import SwiperCore, { Navigation } from 'swiper/core';
+import SwiperCore, { Navigation } from 'swiper';
+
 SwiperCore.use([Navigation]);
 
 @Component({

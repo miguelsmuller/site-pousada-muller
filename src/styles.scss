@@ -4,5 +4,6 @@
 @import 'theme/angular';
 @import 'theme/global';
 
-@import '~swiper/swiper';
-@import '~swiper/components/navigation/navigation';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';

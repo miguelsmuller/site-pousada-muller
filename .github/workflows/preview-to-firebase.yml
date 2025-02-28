@@ -6,7 +6,10 @@ on:
       - develop
       - feature/**
       - fix/**
-
+  workflow_dispatch:
+    tags:
+        description: 'Test scenario tags'
+        
 jobs:
   run-build:
     runs-on: ubuntu-latest

@@ -1,14 +1,12 @@
 name: Build and Deploy Preview
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop
       - feature/**
       - fix/**
-  workflow_dispatch:
-    tags:
-        description: 'Test scenario tags'
         
 jobs:
   run-build:
@@ -20,7 +18,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '20.x'
 
       - name: Install dependencies
         run: npm ci
